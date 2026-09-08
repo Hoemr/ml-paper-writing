@@ -163,7 +163,7 @@ If any check fails, fix the source rather than working around the failure (e.g. 
 ## 7. What this file deliberately does not cover
 
 - Phrase bank, conflict scenarios, push-back tactics, cover-letter wording → [reviewer-response-rebuttal-skill](file:///C:/Users/14417/.claude/skills/reviewer-response-rebuttal-skill/SKILL.md)
-- The 4-phase citation audit → [citation-workflow.md § Auditing References That Already Exist](citation-workflow.md#auditing-references-that-already-exist-in-a-draft) → [check-ref skill](file:///C:/Users/14417/.claude/skills/check-ref/SKILL.md)
+- The 4-phase citation audit → [citation-workflow.md § Auditing References That Already Exist](citation-workflow.md#auditing-references-that-already-exist-in-a-draft) → [audit-existing-references.md](audit-existing-references.md)
 - Per-module manuscript templates → [module-writing-guide.md](module-writing-guide.md)
 - Universal writing philosophy → [writing-guide.md](writing-guide.md)
 - Cross-cutting tone rules → [writing-style.md](writing-style.md)

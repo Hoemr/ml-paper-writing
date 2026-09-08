@@ -2,7 +2,7 @@
 
 This reference provides a complete workflow for managing citations programmatically, preventing AI-generated citation hallucinations, and maintaining clean bibliographies.
 
-> **When to load this file.** Only when the user explicitly asks to add, verify, or audit citations. Writing or revising a section does not trigger this workflow. Do not call Semantic Scholar / OpenAlex / CrossRef / arXiv, do not run `scripts/search_paper.py`, and do not invoke the `check-ref` skill unless the user requests it. The agent should preserve existing `\cite{}` commands as-is when editing prose; verification is on-demand.
+> **When to load this file.** Only when the user explicitly asks to add, verify, or audit citations. Writing or revising a section does not trigger this workflow. Do not call Semantic Scholar / OpenAlex / CrossRef / arXiv, do not run `scripts/search_paper.py`, and do not run the audit pipeline in [audit-existing-references.md](audit-existing-references.md) unless the user requests it. The agent should preserve existing `\cite{}` commands as-is when editing prose; verification is on-demand.
 
 ---
 
@@ -567,7 +567,7 @@ Before adding a citation:
 
 ## Auditing References That Already Exist in a Draft
 
-The workflow above adds *new* citations. This section covers the other half: **auditing the citations that are already in a draft** before submission, or before responding to reviewer comments that question a citation.
+The workflow above adds *new* citations. This section covers the other half: **auditing the citations that are already in a draft** before submission, or before responding to reviewer comments that question a citation. The full procedure is in [audit-existing-references.md](audit-existing-references.md); this section only dispatches.
 
 ### Two complementary dimensions
 
@@ -578,39 +578,17 @@ The workflow above adds *new* citations. This section covers the other half: **a
 
 Both dimensions must pass. A real paper can still be misused (cite is real, but the claim is not what the cited paper says).
 
-### When to use which path
+### Dispatch
 
 | If you are … | Use |
 |--------------|-----|
 | Writing a new section and need to add a citation | This file § [Verified Citation Workflow](#verified-citation-workflow) (search → verify → add) |
-| Reviewing a finished draft before submission, or checking a `.bib` for hidden mistakes | **[check-ref](../check-ref/SKILL.md)** skill — read-only audit |
-| Responding to a reviewer who said "your ref X does not say what you claim" | **[check-ref](../check-ref/SKILL.md)** skill — claim-support audit |
+| Reviewing a finished draft before submission, or checking a `.bib` for hidden mistakes | [audit-existing-references.md](audit-existing-references.md) — full read-only audit |
+| Responding to a reviewer who said "your ref X does not say what you claim" | [audit-existing-references.md](audit-existing-references.md) — Dimension 2 (claim audit) |
 
 The two paths are deliberately separate: the search-and-add path mutates `.bib`; the audit path is read-only on the manuscript and `.bib`, producing only a report file. Mixing them risks silently changing a paper while claiming to only check it.
 
-### What the check-ref skill provides
-
-`check-ref` (located at `~/.claude/skills/check-ref/`) implements a 4-phase audit pipeline:
-
-1. **Phase 0 — Inventory**: detect Tavily MCP availability, prompt for OpenAlex / Semantic Scholar API keys once, identify the root `.tex` and its `.bib`.
-2. **Phase 1 — Extract two lists**: the full `.bib` entry list, and every in-text citation point with the exact claim attached.
-3. **Phase 2 — Truth audit (entry)**: per entry, run `scripts/search_paper.py --doi <doi>` (or title search) **serially**, then WebSearch (batched 5/parallel) for independent confirmation. Both must pass.
-4. **Phase 3 — Claim audit (citation point)**: per citation point, judge whether the cited paper's abstract substantiates the claim. Four fail-types are tracked: unsupported claim, topic-level false positive, missing abstract (cannot judge), numeric / method mis-attribution.
-5. **Phase 4 — Report**: write `check-ref-report.md` next to the paper; never modify the manuscript or `.bib`.
-
-Full rules (field-comparison critical-vs-minor, double-verification, WebSearch batching, rate-limit backoff, report template) live in `check-ref/reference.md`. Read that file on first use.
-
-### Trigger phrases for check-ref
-
-- "检查一下参考文献是否可靠"
-- "核实引用是否张冠李戴"
-- "审计已有引用"
-- "审稿人说我引的 X 不支持我的 claim，帮我看一下"
-- "我想投稿前过一遍 .bib"
-
-When any of these come up, route to check-ref instead of re-reading this section. This file does not duplicate the 4-phase workflow — the audit rules (field severity, batch sizing, claim-judgment criteria) are too detailed and version-pinned to paraphrase safely.
-
-### Quick self-check before submission (lighter than full check-ref)
+### Quick self-check before submission (lighter than the full audit)
 
 If a full audit is overkill, run this 5-minute pass yourself:
 
@@ -621,4 +599,4 @@ If a full audit is overkill, run this 5-minute pass yourself:
 - [ ] Spot-check 3 of the most-cited references against Google Scholar; year and venue match.
 - [ ] No "to appear" / "submitted" / "under review" entries that should have been updated to a published venue.
 
-If any item fails, escalate to a full `check-ref` run.
+If any item fails, escalate to a full audit per [audit-existing-references.md](audit-existing-references.md).
