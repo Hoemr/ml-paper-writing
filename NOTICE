@@ -1,0 +1,14 @@
+Upstream attribution
+====================
+
+This repository contains a customized derivative of the open-source
+`ml-paper-writing` skill from Orchestra Research's AI Research Skills library:
+
+https://github.com/Orchestra-Research/AI-Research-SKILLs
+
+The customized version preserves the upstream MIT License and further develops
+the skill through a slimmer progressive-disclosure structure, stricter
+evidence and delivery checks, and customized notation and equation-formatting
+rules.
+
+See LICENSE for the applicable license and original copyright notice.
