@@ -474,3 +474,17 @@ Before submitting, verify:
 - [ ] Error bars included with methodology
 - [ ] Compute resources documented
 - [ ] Code/data availability stated
+
+---
+
+## Related Resources
+
+This file holds the universal writing philosophy. For action-layer templates and exemplar overlays, use:
+
+| Need | Read |
+|------|------|
+| Per-section role templates (Abstract, Introduction, Related Work, Conclusion) | [module-writing-guide.md](module-writing-guide.md) |
+| Operating cheat sheet, claim-evidence discipline, banned openings, de-AI traces | [writing-style.md](writing-style.md) |
+| Kaiming He exemplar overlay (observation-first, two core designs, minimal related work, lean conclusion) | [styles/kaiming-he-style.md](styles/kaiming-he-style.md) |
+
+The three companion files do not restate the philosophy above; they reference it. When in doubt about the *why*, stay here. When in doubt about the *how* for a specific section, go to `module-writing-guide.md`. When in doubt about *which register* (universal vs He) applies, start from `writing-style.md` § Dispatch table.

@@ -18,6 +18,7 @@ This customized skill is derived from the open-source `ml-paper-writing` skill i
 - Inspect the available evidence before drafting. Distinguish demonstrated results, planned experiments, hypotheses, and unknowns.
 - Preserve technically meaningful caveats. Improve clarity without silently strengthening claims.
 - Never fabricate citations, BibTeX, metrics, ablations, baselines, hyperparameters, or venue requirements.
+- **Do not proactively call citation APIs, fetch BibTeX, or run reference audits.** Verification is on-demand: only when the user explicitly asks to verify, search, or audit citations. Writing or revising a section does not trigger a citation check.
 - Verify current venue rules from official sources because page limits, disclosure policies, and templates change.
 - Keep repository paths, run IDs, internal task names, and code-facing identifiers out of manuscript prose.
 - Compile and inspect deliverable LaTeX rather than stopping after source edits.
@@ -29,7 +30,11 @@ Load only the references needed for the current task:
 | Need | Read |
 |---|---|
 | Narrative, abstract, introduction, sentence clarity, mathematical writing | [references/writing-guide.md](references/writing-guide.md) |
-| Citation search, claim verification, BibTeX retrieval | [references/citation-workflow.md](references/citation-workflow.md) |
+| Per-section paragraph role templates (Abstract, Intro, Related Work, Conclusion) | [references/module-writing-guide.md](references/module-writing-guide.md) |
+| Cross-cutting tone rules, banned openings, claim-evidence discipline, pre-delivery gate | [references/writing-style.md](references/writing-style.md) |
+| Kaiming He exemplar overlay (observation-first, two core designs, minimal related work) | [references/styles/kaiming-he-style.md](references/styles/kaiming-he-style.md) |
+| Citation search, BibTeX retrieval, and read-only audit of existing `.bib` / citation points | [references/citation-workflow.md](references/citation-workflow.md) |
+| Rebuttal phase: dispatch to the rebuttal skill with project-level MUST overlays | [references/rebuttal-guideline.md](references/rebuttal-guideline.md) |
 | Venue checklists and submission requirements | [references/checklists.md](references/checklists.md) |
 | Reviewer criteria, rebuttals, review simulation | [references/reviewer-guidelines.md](references/reviewer-guidelines.md) |
 | OSDI, NSDI, ASPLOS, SOSP specifics and conversions | [references/systems-conferences.md](references/systems-conferences.md) |

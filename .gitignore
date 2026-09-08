@@ -1,0 +1,7 @@
+# Local-only secrets and machine-specific artefacts.
+# Do not commit any of these — they leak API keys or expose local paths.
+scripts/api_keys.local.json
+api_keys.local.json
+.env
+.env.*
+*.local.json
