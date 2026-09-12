@@ -33,6 +33,7 @@ Load only the references needed for the current task:
 | Per-section paragraph role templates (Abstract, Intro, Related Work, Conclusion) | [references/module-writing-guide.md](references/module-writing-guide.md) |
 | Cross-cutting tone rules, banned openings, claim-evidence discipline, pre-delivery gate | [references/writing-style.md](references/writing-style.md) |
 | Kaiming He exemplar overlay (observation-first, two core designs, minimal related work) | [references/styles/kaiming-he-style.md](references/styles/kaiming-he-style.md) |
+| Core method/architecture figures, workflow diagrams, visual hierarchy, and semantic palettes | [references/method-figure-guide.md](references/method-figure-guide.md) |
 | Citation search, BibTeX retrieval, and read-only audit of existing `.bib` / citation points | [references/citation-workflow.md](references/citation-workflow.md) (add) and [references/audit-existing-references.md](references/audit-existing-references.md) (audit) |
 | Rebuttal phase: dispatch to the rebuttal skill with project-level MUST overlays | [references/rebuttal-guideline.md](references/rebuttal-guideline.md) |
 | Venue checklists and submission requirements | [references/checklists.md](references/checklists.md) |
@@ -293,6 +294,8 @@ Tables:
 - make captions self-contained.
 
 Figures:
+
+For core method, architecture, or workflow diagrams, read [references/method-figure-guide.md](references/method-figure-guide.md). It covers mechanism-first layouts, arrow semantics, restrained palettes, and final-size inspection.
 
 - use vector output for plots and diagrams when possible;
 - use accessible palettes and verify grayscale readability;

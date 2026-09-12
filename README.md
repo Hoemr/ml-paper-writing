@@ -9,6 +9,7 @@ Write publication-ready ML / AI / Systems papers for **NeurIPS, ICML, ICLR, ACL,
 | Addition | Where | Purpose |
 |----------|-------|---------|
 | **Kaiming He style overlay** | `references/styles/kaiming-he-style.md` | Vertical case study distilled from ResNet / Mask R-CNN / MAE / MoCo / Focal Loss: 10-item checklist, signature sentence patterns, vocabulary mapping, structural template. Observation-first, two core designs, ablation-before-main, non-restating conclusion. |
+| **Method-figure design guide** | `references/method-figure-guide.md` | Mechanism-first layouts, explicit arrow semantics, optional dark semantic palette, vector sources, and final-size visual checks. |
 | **Per-module paragraph-role templates** | `references/module-writing-guide.md` | Abstract / Introduction / Related Work / Conclusion each get: universal pattern(s), He variant, deliverable check, cross-references. Replaces ad-hoc structure decisions. |
 | **Cross-cutting operating cheat sheet** | `references/writing-style.md` | One-page dispatch table, four one-liners, claim-evidence discipline, banned openings, de-AI traces, pre-delivery gate. Read before drafting a section. |
 | **Rebuttal dispatcher** | `references/rebuttal-guideline.md` | Bridges to the sibling `reviewer-response-rebuttal-skill` with 6 project-level MUST overlays (no `\cref` in rebuttal, future-work 2-4 sentences, compile gate, red/blue markers preserved, jmlr2e shared theorem counter, main text does not restate appendix notation). |
