@@ -373,6 +373,9 @@ $\mathrm{softmax}$, $\mathrm{ReLU}$
 
 ## Figure Design
 
+For method and architecture diagrams, use [method-figure-guide.md](method-figure-guide.md) to choose a layout that exposes the mechanism and keeps schematic objects distinct from empirical data.
+
+
 ### From Neel Nanda
 
 Figures should tell a coherent story even if the reader skips the text. Many readers DO skip the text initially.
