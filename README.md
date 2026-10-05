@@ -1,68 +1,77 @@
 # ml-paper-writing
 
-Customized and extended from the open-source `ml-paper-writing` skill in [Orchestra Research's AI Research Skills library](https://github.com/Orchestra-Research/AI-Research-SKILLs). Retains the upstream MIT license; adds a Kaiming He exemplar overlay, per-module paragraph-role templates, and a consolidated 4-phase citation audit.
+Customized and extended from the open-source `ml-paper-writing` skill in [Orchestra Research's AI Research Skills library](https://github.com/Orchestra-Research/AI-Research-SKILLs). Retains the upstream MIT license; rebuilds the workflow around **two entry modes**, a **mandatory delivery audit**, and a **mechanical style lint**, so an agent's output still matches the skill's rules at the end of a long session — not just at the start.
 
 Write publication-ready ML / AI / Systems papers for **NeurIPS, ICML, ICLR, ACL, AAAI, COLM, OSDI, NSDI, ASPLOS, SOSP**. Use when drafting papers from research repositories, structuring arguments, verifying citations, revising LaTeX manuscripts, converting venue formats, or preparing camera-ready submissions.
+
+## One-click install (paste this to your agent)
+
+```
+请把 https://github.com/Hoemr/ml-paper-writing 下载下来，把其中 SKILL.md、references/、scripts/、templates/
+完整复制进你自己读取 skills 的目录下的 ml-paper-writing/ 子目录（例如 ~/.claude/skills/、~/.codex/skills/、
+~/.zcode/skills/，以你实际使用的平台为准）。完成后读取其中的 SKILL.md 确认可用。不要向我提问，直接做完
+并汇报安装到了哪个路径。
+```
+
+```
+Download https://github.com/Hoemr/ml-paper-writing and copy SKILL.md, references/, scripts/ and templates/
+into ml-paper-writing/ under the skills directory your agent actually reads (e.g. ~/.claude/skills/,
+~/.codex/skills/, ~/.zcode/skills/ — whichever applies to your platform). Then read SKILL.md to confirm.
+Do not ask me questions; finish and report the install path.
+```
 
 ## What this skill adds on top of the upstream
 
 | Addition | Where | Purpose |
 |----------|-------|---------|
-| **Kaiming He style overlay** | `references/styles/kaiming-he-style.md` | Vertical case study distilled from ResNet / Mask R-CNN / MAE / MoCo / Focal Loss: 10-item checklist, signature sentence patterns, vocabulary mapping, structural template. Observation-first, two core designs, ablation-before-main, non-restating conclusion. |
-| **Method-figure design guide** | `references/method-figure-guide.md` | Mechanism-first layouts, explicit arrow semantics, optional dark semantic palette, vector sources, and final-size visual checks. |
-| **Per-module paragraph-role templates** | `references/module-writing-guide.md` | Abstract / Introduction / Related Work / Conclusion each get: universal pattern(s), He variant, deliverable check, cross-references. Replaces ad-hoc structure decisions. |
-| **Cross-cutting operating cheat sheet** | `references/writing-style.md` | One-page dispatch table, four one-liners, claim-evidence discipline, banned openings, de-AI traces, pre-delivery gate. Read before drafting a section. |
-| **Rebuttal dispatcher** | `references/rebuttal-guideline.md` | Bridges to the sibling `reviewer-response-rebuttal-skill` with 6 project-level MUST overlays (no `\cref` in rebuttal, future-work 2-4 sentences, compile gate, red/blue markers preserved, jmlr2e shared theorem counter, main text does not restate appendix notation). |
-| **Consolidated 4-phase citation audit** | `references/audit-existing-references.md` + `scripts/search_paper.py` | Read-only audit pipeline (entry truthfulness + claim support). Two-dimension verification with field-comparison rules, WebSearch batched 5/parallel, rate-limit backoff. The audit script and its workflow now live here instead of in a separate sibling skill. |
+| **Two entry modes** | `SKILL.md` § Modes | Partial mode (default): touch only the requested scope. Full mode: whole-manuscript revision/polish — read the writing guide and style conventions completely, revise chapter by chapter. |
+| **Mandatory delivery audit** | `SKILL.md` § Delivery audit | Rules read early in a long session decay. Before reporting completion the agent must enumerate every changed unit, lint mechanically, review judgment calls with a fresh-context reviewer, and deliver a gate table — a gate with no row counts as not checked. |
+| **Mechanical style lint** | `scripts/lint_style.py` | 10 checks with flag/triage severities: manual `\ref` prefixes vs `\cref`, lowercase table headers, named artifacts without a citation, over-claim rhetoric (`novel`, "extensive experiments", "state of the art", …), semicolon chains / explanatory-dash density, single-use macros, `--bib` missing cite keys, `--log` overfull & undefined references. |
+| **Punctuation & notation gates** | `references/style-conventions.md` | Semicolons and explanatory dashes used sparingly; no single-use intermediate symbols; one declared notation scheme; `\cref` with abbreviated names where the venue allows. |
+| **Single-owner progressive disclosure** | `references/` | `SKILL.md` stays a routing table; each topic has exactly one owner file (writing-guide, style-conventions, algorithms, citation-workflow, figure-workflow, reviewer-guidelines, checklists, systems-conferences, sources) — no second drifting copy of any rule. |
+| **Venue template snapshots** | `templates/` | LaTeX snapshots for the 10 supported venues, with per-venue setup notes in `templates/README.md`. |
 
 ## Repository layout
 
 ```
 ml-paper-writing/
-├── SKILL.md                              ← main entry; operating contract + progressive disclosure
-├── LICENSE                               ← MIT (from upstream)
-├── README.md                             ← this file
+├── SKILL.md                    ← entry: modes, core principles, shortest workflow, routes, quality gates, delivery audit
 ├── references/
-│   ├── writing-guide.md                  ← universal philosophy (Gopen & Swan, Farquhar, Lipton, Steinhardt, Perez)
-│   ├── writing-style.md                  ← cross-cutting operating cheat sheet
-│   ├── module-writing-guide.md           ← per-section role templates (Abstract / Intro / Related Work / Conclusion)
-│   ├── styles/
-│   │   └── kaiming-he-style.md           ← Kaiming He exemplar overlay (10-item checklist)
-│   ├── citation-workflow.md              ← forward direction: search / verify / add new citations
-│   ├── audit-existing-references.md      ← backward direction: read-only 4-phase audit of existing citations
-│   ├── rebuttal-guideline.md             ← dispatcher + project MUST overlays for rebuttal phase
-│   ├── checklists.md                     ← venue checklists
-│   ├── reviewer-guidelines.md            ← reviewer criteria
-│   ├── sources.md                        ← primary writing and venue sources
-│   └── systems-conferences.md            ← OSDI / NSDI / ASPLOS / SOSP specifics
+│   ├── writing-guide.md        ← evidence-before-prose, rewrite procedure, per-chapter patterns
+│   ├── style-conventions.md    ← notation, cross-references, tables, figures, algorithms, prose, punctuation, verification loop
+│   ├── algorithms.md           ← pseudocode recipes and worked examples
+│   ├── citation-workflow.md    ← search / verify / add new citations; claim support
+│   ├── figure-workflow.md      ← method-figure route into the sibling ml-method-figure skill
+│   ├── reviewer-guidelines.md  ← scientific assessment, defensive writing, final equivalence check
+│   ├── checklists.md           ← submission requirements; verify exact venue and year
+│   ├── systems-conferences.md  ← OSDI / NSDI / ASPLOS / SOSP narrative and evaluation
+│   └── sources.md              ← guidance provenance and external-source limits
 ├── scripts/
-│   ├── search_paper.py                   ← OpenAlex + Semantic Scholar search (used by audit)
-│   └── api_keys.local.json               ← local-only secrets (NEVER commit)
-└── templates/                            ← LaTeX snapshots for the 10 supported venues
+│   ├── lint_style.py           ← mechanical delivery-audit lint (see below)
+│   └── audit_pseudocode.py     ← mechanical audit for a LaTeX pseudocode block
+├── templates/                  ← venue template snapshots + setup/conversion notes
+├── LICENSE                     ← MIT (from upstream)
+└── README.md
 ```
 
-## Kaiming He style — when to use it
+## The delivery audit in one minute
 
-The He overlay applies when the paper is:
+```
+1. Enumerate changed units (sections, tables, algorithm blocks, symbols, citations)
+2. python3 scripts/lint_style.py changed.tex --bib refs.bib --log main.log   → triage every finding
+3. Fresh-context reviewer (rules + text only, no conversation history) for judgment-call gates
+4. Deliver the gate table:  | Gate | Items checked | Violations | Resolution |
+```
 
-- Empirical CV / ML method paper with 1-2 design choices
-- Motivated by a surprising empirical observation (often Figure 1)
-- Stated as "two core designs" or similar
-- Accompanied by ablation tables that isolate each choice
-
-It does **not** force-fit onto pure theory, survey, or systems-engineering papers. See `references/styles/kaiming-he-style.md` § "When to use this style" for the matching criteria, and the 10-item checklist (opening observation → declarative voice → Figure 1 is an observation, not an architecture) for self-audit.
+The mechanism borrows from audit-style skills: an explicit list first, per-item verdicts second, a report format that makes omissions visible. Louder MUSTs do not survive a long session; a required table does.
 
 ## Operating principles (from SKILL.md)
 
-1. Treat the author as the owner of scientific claims; the agent is an active collaborator.
-2. Never fabricate citations, BibTeX, metrics, ablations, baselines, hyperparameters, or venue requirements.
-3. **Do not proactively call citation APIs, fetch BibTeX, or run reference audits.** Verification is on-demand: only when the user explicitly asks.
-4. Verify current venue rules from official sources because page limits, disclosure policies, and templates change.
-5. Compile and inspect deliverable LaTeX rather than stopping after source edits.
-
-## Provenance
-
-Derived from the open-source `ml-paper-writing` skill in [Orchestra Research's AI Research Skills library](https://github.com/Orchestra-Research/AI-Research-SKILLs). Retains the upstream MIT license. Extensions: slimmer progressive-disclosure structure, stricter evidence and delivery gates, Kaiming He exemplar overlay, per-module templates, consolidated 4-phase citation audit, and rebuttal dispatcher with project-level MUST overlays.
+1. One central contribution with an explicit problem, mechanism, evidence, and consequence.
+2. Preserve scientific meaning: assumptions, comparison budgets, denominators, uncertainty, adverse results, limitations. Never invent results or citations.
+3. Default to partial mode; go full only on a whole-manuscript request, and say which mode was chosen.
+4. Run the delivery audit before reporting completion; report actual coverage and failures.
+5. Verify current venue rules from official sources — page limits, disclosure policies, and templates change.
 
 ## License
 
@@ -71,5 +80,6 @@ MIT (same as upstream). See [LICENSE](LICENSE).
 ## See also
 
 - [Orchestra Research's AI Research Skills library](https://github.com/Orchestra-Research/AI-Research-SKILLs) — upstream
-- `reviewer-response-rebuttal-skill` — sibling skill for rebuttal phase (depth content)
+- `ml-method-figure` — sibling skill owning method-figure construction and QA
+- `check-ref` — sibling skill for read-only audits of existing references
 - [Hoemr/my_paper_hub](https://github.com/Hoemr/my_paper_hub) — personal reference paper hub

@@ -1,493 +1,266 @@
-# ML Paper Writing Philosophy & Best Practices
+# Narrative and section writing
+
+## Evidence before prose
+
+Read the available manuscript, README, results and experimental settings. For
+each material claim, note its evidence location, comparator, budget, metric,
+aggregation, uncertainty, and scope. A small working table is enough; reuse an
+existing map after checking it. Do not add a separate document unless useful to
+the deliverable. Keep measured results, analytic guarantees and proposals distinct.
+
+State the contribution in one sentence: what changes, why that change matters,
+and what evidence supports it. For an analysis paper, the contribution may be a
+controlled distinction or a counterexample rather than a new algorithm. Do not
+force a novelty narrative that the evidence cannot support.
+
+When sources are clear, produce the requested draft and state framing assumptions
+with it. When sources conflict, narrow the claim and flag the exact conflict;
+ask only for information needed to resolve it. Drafting does not authorize running
+new experiments, submitting, or installing external services.
+
+## A short procedure for rewriting
+
+1. Read the requested section, the evidence supporting it, and the corresponding
+   section below. For an abstract or conclusion, also inspect the body claims.
+2. Extract the facts to keep: contribution, mechanism, comparisons, assumptions,
+   units, uncertainty and limitations. Identify missing facts before drafting.
+3. Give each paragraph one job; use the chapter pattern to fix missing logical
+   links before polishing individual words. Change only the requested scope.
+4. Rewrite from those facts. Do not fill empty pattern slots with plausible
+   motivation, a theorem, an experiment or a citation. Keep already-clear prose.
+5. Compare original and rewrite against the facts. Run the equivalence pass in
+   [reviewer-guidelines.md](reviewer-guidelines.md), then the applicable artifact
+   checks in [style-conventions.md](style-conventions.md).
+
+The examples below are authored teaching examples, not research results or prose
+to insert into a user's paper. Square-bracket fields require verified manuscript
+content; they are not citation keys. Unbracketed example facts apply only to that
+example. A rewrite is not permission to change the scientific conclusion.
+When an original passage overclaims relative to its evidence, report a necessary
+narrowing as a substantive correction, not a meaning-preserving rhetorical edit.
+Do not introduce new support to rescue it.
+
+## Chapter patterns and examples
+
+Read the requested chapter; a complete draft needs all relevant chapters. These
+are defaults, not mandatory sentence counts, page limits or section orders.
+
+### Abstract
+
+**Job:** state the specific contribution, mechanism, evidence and supported
+takeaway in a compact passage that can be understood without the paper.
+
+Use five moves when useful: achievement → difficulty/importance → mechanism →
+evidence → implication. “We introduce,” “We prove,” or “We find” must match the
+actual contribution. Include necessary scope and assumptions adjacent to the
+result. Name the baseline and metric when giving a number. A theory abstract
+can lead with its result and assumptions; a negative-results paper should lead
+with the supported finding rather than invent an improvement.
+
+Avoid a generic field-history opening, acronym lists, contribution inventories,
+or a best-case number presented as the overall result. A proposed mechanism is
+not a measured achievement. Missing results stay an author-facing gap, not a
+fabricated “extensive evaluation.”
+
+**Before:** “Language models have made remarkable progress. We propose X, which
+contains A, B and C. Extensive experiments demonstrate its effectiveness.”
+
+**After pattern:** “We introduce X to address [specific failure under stated
+conditions]. X [distinctive operation], allowing [supported consequence]. Under
+[matched evaluation setting], X [measured result against named comparator].
+[Material qualification]. These findings [bounded implication].”
+
+This repairs missing information only when the body supplies it. For an already
+sound abstract, reorder existing statements locally instead of filling the
+pattern with additional claims.
+
+**Completed teaching example.** Assumed facts: mean-normalized token selection;
+matched counts for confidence-ranked and random masks; task differences change
+sign; one training run per configuration. These are example premises, not results
+for a new manuscript:
+
+> Token selection can change both reward-term membership and normalization. We
+> compare confidence-ranked and uniform masks at matched retained counts under
+> the same mean normalization. Across the evaluated tasks, their downstream
+> differences vary in direction. Each configuration has one training run, so the
+> comparisons establish neither superiority nor equivalence. The findings support
+> using matched random controls and explicit normalization when interpreting
+> confidence-based selection.
+
+The qualifier constrains the result; it is not an apology. This is an analysis
+abstract, so it does not manufacture a new algorithm or a remarkable number.
+
+### Introduction
+
+**Job:** make the research question feel necessary and explain why the proposed
+answer or analysis is informative.
+
+A useful sequence is: concrete problem and consequence → closest approaches →
+specific unresolved boundary → insight → approach overview → qualified evidence
+preview → short contribution list. The gap must follow from the preceding work,
+not appear as an unsupported “no existing method.” Keep broad field history
+short. Explain the mechanism once in plain language before introducing notation.
+Put essential motivation and contributions early; page budgets come from the
+actual venue rather than a universal 1.5-page rule.
+
+Usually a few contribution bullets suffice. Each names a supported result,
+construction, resource or analytical distinction, with assumptions where needed.
+“We study” is fine when followed by what the study establishes; “extensive
+experiments” alone does not state a contribution. Do not promise benefits the
+experiments do not measure.
+
+**Before:** “Previous methods have several limitations. We ask three questions
+and propose a novel framework. We conduct comprehensive experiments.”
+
+**After pattern:** “Existing [approach] addresses [problem] through [mechanism],
+but the available comparisons also change [confounding factor]. They therefore
+leave [specific attribution] unresolved. We hold [control] fixed and vary
+[intervention] to test it. The results establish [supported finding], within
+[evaluated scope].”
 
-This reference compiles writing advice from prominent ML researchers including Neel Nanda, Andrej Karpathy, Sebastian Farquhar, Zachary Lipton, and Jacob Steinhardt.
+**Contribution example:** replace “We provide extensive experiments” with
+“We compare [interventions] under a matched [budget], finding [observed result].”
+Replace “We provide theory” with “We prove [statement] under [assumptions].”
+Neither pattern licenses inventing the result or theorem.
 
----
+### Related work
 
-## Contents
+**Job:** place the contribution among approaches addressing the same question
+and make the closest methodological distinction inspectable.
 
-- [The Narrative Principle](#the-narrative-principle)
-- [Time Allocation](#time-allocation)
-- [Abstract Writing Formula](#abstract-writing-formula)
-- [Introduction Structure](#introduction-structure)
-- [Sentence-Level Clarity](#sentence-level-clarity)
-- [Word Choice and Precision](#word-choice-and-precision)
-- [Mathematical Writing](#mathematical-writing)
-- [Figure Design](#figure-design)
-- [Common Mistakes to Avoid](#common-mistakes-to-avoid)
+Organize paragraphs by signal source, assumption, objective or problem boundary.
+For each family: explain the common mechanism, cite verified representatives,
+state its relevant boundary, and compare with this paper on the same axis.
+Discuss the closest work directly; do not bury it among distant citations.
+Distinguish “different from our setting” from “inferior.” Avoid a chronological
+author-by-author list unless history itself is the question.
 
----
+**Before:** “Work A introduced A. Work B proposed B. Work C developed C. Our
+method is different from all of them.”
 
-## The Narrative Principle
+**After pattern:** “[Verified family A] obtains [signal] from [source], while
+[verified family B] estimates it using [other source]. X instead uses [its
+source]. The closest [verified work] shares [common construction] but differs
+in [specific assumption or operation].”
 
-### From Neel Nanda
+Keep references on the clauses they support. Verify both existence and claim
+support using [citation-workflow.md](citation-workflow.md). Group citations only
+when they support the same statement. Do not claim priority from an incomplete
+search or cite generously merely to flatter potential reviewers.
 
-"A paper is a short, rigorous, evidence-based technical story with a takeaway readers care about."
+### Method or system design
 
-The narrative rests on three pillars that must be crystal clear by the end of your introduction:
+**Job:** explain the final mechanism so an expert can reconstruct it.
 
-**The "What"**: One to three specific novel claims fitting within a cohesive theme. Vague contributions like "we study X" fail immediately—reviewers need precise, falsifiable claims.
+Start with inputs → distinctive computation → outputs → objective/update. Then
+define notation at first use, state assumptions, and present the operations in
+dependency order. Before each major equation, say what quantity it defines and
+why it is needed; afterwards explain its consequence or role. Explain design
+choices through the problem they address, not a diary of discarded versions.
 
-**The "Why"**: Rigorous empirical evidence that convincingly supports those claims, including strong baselines honestly tuned and experiments that distinguish between competing hypotheses rather than merely showing "decent results."
-
-**The "So What"**: Why readers should care, connecting your contribution to problems the community recognizes as important.
-
-### From Andrej Karpathy
-
-"A paper is not a random collection of experiments you report on. The paper sells a single thing that was not obvious or present before. The entire paper is organized around this core contribution with surgical precision."
-
-This applies whether you're presenting a new architecture, a theoretical result, or improved understanding of existing methods—NeurIPS explicitly notes that "originality does not necessarily require an entirely new method."
-
-**Practical Implication**: If you cannot state your contribution in one sentence, you don't yet have a paper. Everything else—experiments, related work, discussion—exists only to support that core claim.
-
----
-
-## Time Allocation
-
-### From Neel Nanda
-
-Spend approximately **the same amount of time** on each of:
-1. The abstract
-2. The introduction
-3. The figures
-4. Everything else combined
-
-This isn't hyperbole—most reviewers form preliminary judgments before reaching your methods section. Readers encounter your paper in a predictable pattern: **title → abstract → introduction → figures → maybe the rest.**
-
-### Reviewer Reading Patterns
-
-Studies of reviewer behavior show:
-- Abstract is read 100% of the time
-- Introduction is skimmed by 90%+ of reviewers
-- Figures are examined before methods by most reviewers
-- Full methods are read only if interest is established
-
-**Implication**: Front-load your paper's value. Don't bury the contribution.
-
----
-
-## Abstract Writing Formula
-
-### Sebastian Farquhar's 5-Sentence Formula
-
-1. **What you achieved**: "We introduce...", "We prove...", "We demonstrate..."
-2. **Why this is hard and important**
-3. **How you do it** (with specialist keywords for discoverability)
-4. **What evidence you have**
-5. **Your most remarkable number/result**
-
-### Example (Good Abstract)
-
-```
-We prove that gradient descent on overparameterized neural networks
-converges to global minima at a linear rate. [What]
-This resolves a fundamental question about why deep learning works
-despite non-convex optimization landscapes. [Why hard/important]
-Our proof relies on showing that the Neural Tangent Kernel remains
-approximately constant during training, reducing the problem to
-kernel regression. [How with keywords]
-We validate our theory on CIFAR-10 and ImageNet, showing that
-predicted convergence rates match experiments within 5%. [Evidence]
-This is the first polynomial-time convergence guarantee for
-networks with practical depth and width. [Remarkable result]
-```
-
-### What to Avoid
-
-From Zachary Lipton: "If the first sentence can be pre-pended to any ML paper, delete it."
-
-**Delete these openings**:
-- "Large language models have achieved remarkable success..."
-- "Deep learning has revolutionized..."
-- "In recent years, neural networks have..."
-
-**Start with your specific contribution instead.**
-
----
-
-## Introduction Structure
-
-### Requirements
-
-- **1-1.5 pages maximum** (in two-column format)
-- **Methods should start by page 2-3**
-- Must include **2-4 bullet contribution list** (max 1-2 lines each)
-
-### Structure Template
-
-```markdown
-1. Opening Hook (2-3 sentences)
-   - State the problem your paper addresses
-   - Why it matters RIGHT NOW
-
-2. Background/Challenge (1 paragraph)
-   - What makes this problem hard?
-   - What have others tried? Why is it insufficient?
-
-3. Your Approach (1 paragraph)
-   - What do you do differently?
-   - Key insight that enables your contribution
-
-4. Contribution Bullets (2-4 items)
-   - Be specific and falsifiable
-   - Each bullet: 1-2 lines maximum
-
-5. Results Preview (2-3 sentences)
-   - Most impressive numbers
-   - Scope of evaluation
-
-6. Paper Organization (optional, 1-2 sentences)
-   - "Section 2 presents... Section 3 describes..."
-```
-
-### Contribution Bullets: Good vs Bad
-
-**Good:**
-- We prove that X converges in O(n log n) time under assumption Y
-- We introduce Z, a 3-layer architecture that reduces memory by 40%
-- We demonstrate that A outperforms B by 15% on benchmark C
-
-**Bad:**
-- We study the problem of X (not a contribution)
-- We provide extensive experiments (too vague)
-- We make several contributions to the field (says nothing)
-
----
-
-## Sentence-Level Clarity
-
-### From Gopen & Swan: "The Science of Scientific Writing"
-
-The seminal 1990 paper by George Gopen and Judith Swan establishes that **readers have structural expectations** about where information appears in prose. Violating these expectations forces readers to spend energy on structure rather than content.
-
-> "If the reader is to grasp what the writer means, the writer must understand what the reader needs."
-
-#### The 7 Principles of Reader Expectations
-
-**Principle 1: Subject-Verb Proximity**
-
-Keep grammatical subject and verb close together. Anything intervening reads as interruption of lesser importance.
-
-**Weak**: "The model, which was trained on 100M tokens and fine-tuned on domain-specific data using LoRA with rank 16, achieves state-of-the-art results"
-
-**Strong**: "The model achieves state-of-the-art results after training on 100M tokens and fine-tuning with LoRA (rank 16)"
-
-**Principle 2: Stress Position (Save the Best for Last)**
-
-Readers naturally emphasize the **last words of a sentence**. Place your most important information there.
-
-**Weak**: "Accuracy improves by 15% when using attention"
-**Strong**: "When using attention, accuracy improves by **15%**"
-
-**Principle 3: Topic Position (First Things First)**
-
-The beginning of a sentence establishes perspective. Put the "whose story" element first—readers expect the sentence to be about whoever shows up first.
-
-**Weak**: "A novel attention mechanism that computes alignment scores is introduced"
-**Strong**: "To address the alignment problem, we introduce a novel attention mechanism"
-
-**Principle 4: Old Information Before New**
-
-Put familiar information (old) in the topic position for backward linkage; put new information in the stress position for emphasis.
-
-**Weak**: "Sparse attention was introduced by Child et al. The quadratic complexity of standard attention motivates this work."
-**Strong**: "Standard attention has quadratic complexity. To address this, Child et al. introduced sparse attention."
-
-**Principle 5: One Unit, One Function**
-
-Each unit of discourse (sentence, paragraph, section) should serve a single function. If you have two points, use two units.
-
-**Principle 6: Articulate Action in the Verb**
-
-Express the action of each sentence in its verb, not in nominalized nouns.
-
-**Weak**: "We performed an analysis of the results" (nominalization)
-**Strong**: "We analyzed the results" (action in verb)
-
-**Principle 7: Context Before New Information**
-
-Provide context before asking the reader to consider anything new. This applies at all levels—sentence, paragraph, section.
-
-**Weak**: "Equation 3 shows that convergence is guaranteed when the learning rate satisfies..."
-**Strong**: "For convergence to be guaranteed, the learning rate must satisfy the condition in Equation 3..."
-
-#### Summary Table
-
-| Principle | Rule | Mnemonic |
-|-----------|------|----------|
-| Subject-Verb Proximity | Keep subject and verb close | "Don't interrupt yourself" |
-| Stress Position | Emphasis at sentence end | "Save the best for last" |
-| Topic Position | Context at sentence start | "First things first" |
-| Old Before New | Familiar → unfamiliar | "Build on known ground" |
-| One Unit, One Function | Each paragraph = one point | "One idea per container" |
-| Action in Verb | Use verbs, not nominalizations | "Verbs do, nouns sit" |
-| Context Before New | Explain before presenting | "Set the stage first" |
-
----
-
----
-
-## Micro-Level Writing Tips
-
-### From Ethan Perez (Anthropic)
-
-These practical micro-level tips improve clarity at the sentence and word level.
-
-#### Pronoun Management
-
-**Minimize pronouns** ("this," "it," "these," "that"). When pronouns are necessary, use them as adjectives with a noun:
-
-**Weak**: "This shows that the model converges."
-**Strong**: "This result shows that the model converges."
-
-**Weak**: "It improves performance."
-**Strong**: "This modification improves performance."
-
-#### Verb Placement
-
-**Position verbs early** in sentences for better parsing:
-
-**Weak**: "The gradient, after being computed and normalized, updates the weights."
-**Strong**: "The gradient updates the weights after being computed and normalized."
-
-#### Apostrophe Unfolding
-
-Transform possessive constructions for clarity:
-
-**Original**: "X's Y" → **Unfolded**: "The Y of X"
-
-**Before**: "The model's accuracy on the test set"
-**After**: "The accuracy of the model on the test set"
-
-This isn't always better, but when sentences feel awkward, try unfolding.
-
-#### Words to Eliminate
-
-Delete these filler words in almost all cases:
-- "actually"
-- "a bit"
-- "fortunately" / "unfortunately"
-- "very" / "really"
-- "quite"
-- "basically"
-- "essentially"
-- Excessive connectives ("however," "moreover," "furthermore" when not needed)
-
-#### Sentence Construction Rules
-
-1. **One idea per sentence** - If struggling to express an idea in one sentence, it needs two
-2. **No repeated sounds** - Avoid similar-sounding words in the same sentence
-3. **Every sentence adds information** - Delete sentences that merely restate
-4. **Active voice always** - Specify the actor ("We find..." not "It is found...")
-5. **Expand contractions** - "don't" → "do not" for formality
-
-#### Paragraph Architecture
-
-- **First sentence**: State the point clearly
-- **Middle sentences**: Support with evidence
-- **Last sentence**: Reinforce or transition
-
-Don't bury key information in the middle of paragraphs.
-
----
-
-## Word Choice and Precision
-
-### From Zachary Lipton
-
-**Eliminate hedging** unless genuine uncertainty exists:
-- Delete "may" and "can" unless necessary
-- "provides *very* tight approximation" drips with insecurity
-- "provides tight approximation" is confident
-
-**Avoid vacuous intensifiers**:
-- Delete: very, extremely, highly, significantly (unless statistical)
-- These words signal insecurity, not strength
-
-### From Jacob Steinhardt
-
-**Precision over brevity**: Replace vague terms with specific ones.
-
-| Vague | Specific |
-|-------|----------|
-| performance | accuracy, latency, throughput |
-| improves | increases accuracy by X%, reduces latency by Y |
-| large | 1B parameters, 100M tokens |
-| fast | 3x faster, 50ms latency |
-| good results | 92% accuracy, 0.85 F1 |
-
-**Consistent terminology**: Referring to the same concept with different terms creates confusion.
-
-**Choose one and stick with it**:
-- "model" vs "network" vs "architecture"
-- "training" vs "learning" vs "optimization"
-- "sample" vs "example" vs "instance"
-
-### Vocabulary Signaling
-
-**Avoid words signaling incremental work**:
-- Never: "combine," "modify," "expand," "extend"
-- Instead: "develop," "propose," "introduce"
-
-**Why**: "We combine X and Y" sounds like you stapled two existing ideas together. "We develop a method that leverages X for Y" sounds like genuine contribution.
-
----
-
-## Mathematical Writing
-
-### From Ethan Perez
-
-**Unfold apostrophes** for clarity:
-- Weak: "X's Y"
-- Strong: "The Y of X"
-
-Example: "the model's accuracy" → "the accuracy of the model"
-
-### General Principles
-
-1. **State all assumptions formally** before theorems
-2. **Provide intuitive explanations** alongside proofs
-3. **Use consistent notation** throughout the paper
-4. **Define symbols at first use**
-
-### Notation Conventions
-
-```latex
-% Scalars: lowercase italic
-$x$, $y$, $\alpha$, $\beta$
-
-% Vectors: lowercase bold
-$\mathbf{x}$, $\mathbf{v}$
-
-% Matrices: uppercase bold
-$\mathbf{W}$, $\mathbf{X}$
-
-% Sets: uppercase calligraphic
-$\mathcal{X}$, $\mathcal{D}$
-
-% Functions: roman for named functions
-$\mathrm{softmax}$, $\mathrm{ReLU}$
-```
-
----
-
-## Figure Design
-
-For method and architecture diagrams, use [method-figure-guide.md](method-figure-guide.md) to choose a layout that exposes the mechanism and keeps schematic objects distinct from empirical data.
-
-
-### From Neel Nanda
-
-Figures should tell a coherent story even if the reader skips the text. Many readers DO skip the text initially.
-
-### Design Principles
-
-1. **Figure 1 is crucial**: Often the first thing readers examine after abstract
-2. **Self-contained captions**: Reader should understand figure without main text
-3. **No title inside figure**: The caption serves this function (ICML/NeurIPS rule)
-4. **Vector graphics**: PDF/EPS for plots, PNG (600 DPI) only for photographs
-
-### Accessibility Requirements
-
-8% of men have color vision deficiency. Your figures must work for them.
-
-**Solutions**:
-- Use colorblind-safe palettes: Okabe-Ito or Paul Tol
-- Avoid red-green combinations
-- Verify figures work in grayscale
-- Use different line styles (solid, dashed, dotted) in addition to colors
-
-### Tools
-
-```python
-# SciencePlots: Publication-ready styles
-import matplotlib.pyplot as plt
-plt.style.use(['science', 'ieee'])
-
-# Or for Nature-style
-plt.style.use(['science', 'nature'])
-```
-
----
-
-## Common Mistakes to Avoid
-
-### Structure Mistakes
-
-| Mistake | Solution |
-|---------|----------|
-| Introduction too long (>1.5 pages) | Move background to Related Work |
-| Methods buried (after page 3) | Front-load contribution, cut intro |
-| Missing contribution bullets | Add 2-4 specific, falsifiable claims |
-| Experiments without explicit claims | State what each experiment tests |
-
-### Writing Mistakes
-
-| Mistake | Solution |
-|---------|----------|
-| Generic abstract opening | Start with your specific contribution |
-| Inconsistent terminology | Choose one term per concept |
-| Passive voice overuse | Use active voice: "We show" not "It is shown" |
-| Hedging everywhere | Be confident unless genuinely uncertain |
-
-### Figure Mistakes
-
-| Mistake | Solution |
-|---------|----------|
-| Raster graphics for plots | Use vector (PDF/EPS) |
-| Red-green color scheme | Use colorblind-safe palette |
-| Title inside figure | Put title in caption |
-| Captions require main text | Make captions self-contained |
-
-### Citation Mistakes
-
-| Mistake | Solution |
-|---------|----------|
-| Paper-by-paper Related Work | Organize methodologically |
-| Missing relevant citations | Reviewers authored papers—cite generously |
-| AI-generated citations | Always verify via APIs |
-| Inconsistent citation format | Use BibLaTeX with consistent keys |
-
----
-
-## Pre-Submission Checklist
-
-Before submitting, verify:
-
-**Narrative**:
-- [ ] Can state contribution in one sentence
-- [ ] Three pillars (What/Why/So What) clear in intro
-- [ ] Every experiment supports a specific claim
-
-**Structure**:
-- [ ] Abstract follows 5-sentence formula
-- [ ] Introduction ≤1.5 pages
-- [ ] Methods start by page 2-3
-- [ ] 2-4 contribution bullets included
-- [ ] Limitations section present
-
-**Writing**:
-- [ ] Consistent terminology throughout
-- [ ] No generic opening sentences
-- [ ] Hedging removed unless necessary
-- [ ] All figures have self-contained captions
-
-**Technical**:
-- [ ] All citations verified via API
-- [ ] Error bars included with methodology
-- [ ] Compute resources documented
-- [ ] Code/data availability stated
-
----
-
-## Related Resources
-
-This file holds the universal writing philosophy. For action-layer templates and exemplar overlays, use:
-
-| Need | Read |
-|------|------|
-| Per-section role templates (Abstract, Introduction, Related Work, Conclusion) | [module-writing-guide.md](module-writing-guide.md) |
-| Operating cheat sheet, claim-evidence discipline, banned openings, de-AI traces | [writing-style.md](writing-style.md) |
-| Kaiming He exemplar overlay (observation-first, two core designs, minimal related work, lean conclusion) | [styles/kaiming-he-style.md](styles/kaiming-he-style.md) |
-
-The three companion files do not restate the philosophy above; they reference it. When in doubt about the *why*, stay here. When in doubt about the *how* for a specific section, go to `module-writing-guide.md`. When in doubt about *which register* (universal vs He) applies, start from `writing-style.md` § Dispatch table.
+Make scoring targets, normalization denominators, frozen/trainable components,
+gradient boundaries and consequential edge cases explicit when applicable.
+Give necessary architecture, hyperparameters and reproduction details in the
+body or a referenced appendix. A named helper is not a substitute for its
+definition. Algorithm formatting belongs to style-conventions/algorithms; method
+figure construction belongs to [figure-workflow.md](figure-workflow.md).
+
+**Teaching example facts:** X scores the same sampled tokens under two contexts,
+using a frozen model; it subtracts their scores, centers the differences within
+the trajectory, and adds the correction to a verified outcome anchor.
+
+**Before:** “We calculate a score and normalize it. Our advantage is given by
+Eq. [number]. We then train the model.”
+
+**After:** “A frozen model scores the same sampled tokens under two contexts.
+Their score difference defines the token correction. We center the differences
+within each trajectory and add them to its verified outcome anchor to obtain
+the learning signal.”
+
+The example states data flow; the actual paper must still define the contexts,
+score, reduction, degenerate cases and loss. A centered scalar mean does not
+by itself establish an unchanged policy gradient or correct causal credit.
+
+### Experiments and results
+
+**Job:** test a stated claim with an interpretable comparison.
+
+For each experiment, give question → control/setup → observed result → bounded
+interpretation. Separate the diagnostic quantity from the downstream outcome.
+Document matching budgets and uncertainty units; refer to detailed settings
+rather than repeat the full recipe in every paragraph. Report mixed results on
+the same terms as favorable results.
+
+**Before:** “X performs better, demonstrating the effectiveness of our design.”
+
+**After pattern:** “At fixed [budget], X changes [metric] from [baseline value]
+to [X value] on [evaluation scope]. [Other relevant result/uncertainty]. This
+supports [tested claim] within [boundary].”
+
+If evidence is only a short memory profile, say “peak memory in this profile,”
+not “training efficiency” or “faster training.” If a difference is not resolved
+by available uncertainty, it establishes neither equivalence nor superiority.
+
+### Limitations and discussion
+
+**Job:** state which inferences the evidence cannot support and why that matters.
+
+Connect a boundary to its consequence: limited seeds → unresolved training
+variability; independent-distribution assumptions → no direct prediction of a
+shared-parameter optimizer. Place essential qualifications near the affected
+claim and follow the venue's required limitations format. Further experiments
+are future work until completed. A caveat is not resolved because it is admitted.
+
+Detailed defensive-writing decisions and contrastive examples have a single
+owner: [reviewer-guidelines.md](reviewer-guidelines.md#defensive-writing-examples).
+
+### Conclusion
+
+**Job:** leave the reader with the supported finding and its consequence.
+
+Close the introduction's question: what the work established, what mechanism or
+comparison explains it, and what follows within scope. Do not add a new result,
+stronger theorem, priority claim or generalization. Avoid replaying a module list
+or every benchmark value. Keep a future direction separate from the established
+conclusion and tied to a specific unresolved boundary.
+
+**Before:** “We presented X with A, B and C. Experiments prove X is broadly
+effective. We will investigate many exciting applications.”
+
+**After pattern:** “Our [analysis/comparison] establishes [supported finding]
+under [conditions]. This identifies [bounded consequence for the original
+problem]. [Specific unresolved question] is the next evaluation target.”
+
+If the body has mixed results, the conclusion must retain that interpretation.
+For instance, “effects vary across the evaluated settings” cannot become “the
+method consistently improves performance.”
+
+## Reader expectations
+
+Use Gopen–Swan's useful defaults: keep subject and verb close, supply familiar
+context before new information, express action in verbs, and give each paragraph
+one function. Put the key inference where the sentence gives it emphasis.
+
+Prefer concrete metrics to “performance,” stable terminology to synonyms, and
+short labels to unexplained acronyms. Replace vague pronouns with nouns when
+their referent is ambiguous. Delete filler, generic openings and decorative
+intensifiers. Active voice often clarifies the actor; passive voice is appropriate
+when the operation or object is the subject of interest.
+
+Keep epistemic qualifiers when meaningful. “May,” “preliminary,” and “under these
+assumptions” can be essential evidence boundaries. Use “combine” or “extend” when
+that accurately describes the contribution; stronger verbs do not create novelty.
+
+## Evidence and reproduction
+
+Report observed baselines and tuning conditions, splits, seeds, hyperparameters,
+hardware and compute accounting where available. Label an error bar's meaning
+and sampling unit. Distinguish evaluation uncertainty from training-seed variance.
+Use paired comparisons when paired observations exist; do not invent confidence
+intervals or tests from insufficient summary statistics. Small differences prove
+neither superiority nor equivalence by themselves.
+
+For method figures, read [figure-workflow.md](figure-workflow.md). For artifact
+checks, use [style-conventions.md](style-conventions.md). For a final small wording
+pass, use [reviewer-guidelines.md](reviewer-guidelines.md). Provenance is in
+[sources.md](sources.md); this guide makes no claims about reviewer reading rates.
