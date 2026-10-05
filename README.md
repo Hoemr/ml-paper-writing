@@ -7,17 +7,19 @@ Write publication-ready ML / AI / Systems papers for **NeurIPS, ICML, ICLR, ACL,
 ## One-click install (paste this to your agent)
 
 ```
-请把 https://github.com/Hoemr/ml-paper-writing 下载下来，把其中 SKILL.md、references/、scripts/、templates/
-完整复制进你自己读取 skills 的目录下的 ml-paper-writing/ 子目录（例如 ~/.claude/skills/、~/.codex/skills/、
-~/.zcode/skills/，以你实际使用的平台为准）。完成后读取其中的 SKILL.md 确认可用。不要向我提问，直接做完
-并汇报安装到了哪个路径。
+请把 https://github.com/Hoemr/ml-paper-writing 下载下来，把其中 SKILL.md、
+references/、scripts/、templates/ 完整复制进你自己读取 skills 的目录下的
+ml-paper-writing/ 子目录（例如 ~/.claude/skills/、~/.codex/skills/、
+~/.zcode/skills/，以你实际使用的平台为准）。完成后读取其中的 SKILL.md
+确认可用。不要向我提问，直接做完并汇报安装到了哪个路径。
 ```
 
 ```
-Download https://github.com/Hoemr/ml-paper-writing and copy SKILL.md, references/, scripts/ and templates/
-into ml-paper-writing/ under the skills directory your agent actually reads (e.g. ~/.claude/skills/,
-~/.codex/skills/, ~/.zcode/skills/ — whichever applies to your platform). Then read SKILL.md to confirm.
-Do not ask me questions; finish and report the install path.
+Download https://github.com/Hoemr/ml-paper-writing and copy SKILL.md, references/,
+scripts/ and templates/ into ml-paper-writing/ under the skills directory your agent
+reads (for example ~/.claude/skills/, ~/.codex/skills/ or ~/.zcode/skills/ - whichever
+applies to your platform). Then read SKILL.md to confirm. Do not ask questions; finish
+and report the install path.
 ```
 
 ## What this skill adds on top of the upstream
@@ -35,21 +37,21 @@ Do not ask me questions; finish and report the install path.
 
 ```
 ml-paper-writing/
-├── SKILL.md                    ← entry: modes, core principles, shortest workflow, routes, quality gates, delivery audit
+├── SKILL.md                    ← modes, workflow, gates, delivery audit
 ├── references/
-│   ├── writing-guide.md        ← evidence-before-prose, rewrite procedure, per-chapter patterns
-│   ├── style-conventions.md    ← notation, cross-references, tables, figures, algorithms, prose, punctuation, verification loop
+│   ├── writing-guide.md        ← evidence-first rewriting and chapter patterns
+│   ├── style-conventions.md    ← notation, cross-refs, tables, prose, punctuation
 │   ├── algorithms.md           ← pseudocode recipes and worked examples
-│   ├── citation-workflow.md    ← search / verify / add new citations; claim support
-│   ├── figure-workflow.md      ← method-figure route into the sibling ml-method-figure skill
-│   ├── reviewer-guidelines.md  ← scientific assessment, defensive writing, final equivalence check
-│   ├── checklists.md           ← submission requirements; verify exact venue and year
-│   ├── systems-conferences.md  ← OSDI / NSDI / ASPLOS / SOSP narrative and evaluation
-│   └── sources.md              ← guidance provenance and external-source limits
+│   ├── citation-workflow.md    ← search / verify / add new citations
+│   ├── figure-workflow.md      ← route into the sibling ml-method-figure skill
+│   ├── reviewer-guidelines.md  ← defensive writing, equivalence check
+│   ├── checklists.md           ← submission rules; verify exact venue and year
+│   ├── systems-conferences.md  ← OSDI / NSDI / ASPLOS / SOSP specifics
+│   └── sources.md              ← guidance provenance and external limits
 ├── scripts/
 │   ├── lint_style.py           ← mechanical delivery-audit lint (see below)
-│   └── audit_pseudocode.py     ← mechanical audit for a LaTeX pseudocode block
-├── templates/                  ← venue template snapshots + setup/conversion notes
+│   └── audit_pseudocode.py     ← mechanical audit for a pseudocode block
+├── templates/                  ← venue template snapshots + setup notes
 ├── LICENSE                     ← MIT (from upstream)
 └── README.md
 ```
@@ -58,8 +60,9 @@ ml-paper-writing/
 
 ```
 1. Enumerate changed units (sections, tables, algorithm blocks, symbols, citations)
-2. python3 scripts/lint_style.py changed.tex --bib refs.bib --log main.log   → triage every finding
-3. Fresh-context reviewer (rules + text only, no conversation history) for judgment-call gates
+2. Lint: python3 scripts/lint_style.py paper.tex --bib refs.bib --log main.log
+   → triage every finding (fix it, or state why it stands)
+3. Fresh-context reviewer (rules + text only, no conversation history) for judgment gates
 4. Deliver the gate table:  | Gate | Items checked | Violations | Resolution |
 ```
 
