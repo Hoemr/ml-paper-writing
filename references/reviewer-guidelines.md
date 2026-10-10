@@ -47,6 +47,15 @@ Keep an essential caveat adjacent to its claim. Do not relocate it solely to mak
 the abstract or conclusion sound stronger. The original skill's blanket ban on
 describing unmeasured work is not reinstated.
 
+Distinguish claim selection from suppressing evidence. A method abstract may
+report a verified mechanism and a measured cost comparison without summarizing
+every task's accuracy curve or missing evaluation. In that case, keep the cost
+comparison's budget condition in the abstract and report the accuracy evidence
+in the results. If the abstract also claims accuracy superiority, the relevant
+mixed results and uncertainty constrain that claim there. Avoid project-status
+phrases such as “comparisons remain incomplete” when the abstract makes no claim
+that depends on those comparisons.
+
 These are authored teaching pairs. Their facts are hypothetical and must not
 be transferred to a manuscript without evidence. A blocked rewrite illustrates
 what an agent must refuse, not wording to imitate.

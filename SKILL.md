@@ -3,7 +3,7 @@ name: ml-paper-writing
 description: Draft, revise, and prepare ML/AI or systems research papers from manuscripts, code, and experimental evidence. Use for contribution framing, scientific prose, citations, method-figure planning, or venue conversion; route TikZ construction and figure QA to ml-method-figure.
 license: MIT
 metadata:
-  version: 2.2.0
+  version: 2.2.1
   author: Orchestra Research; personal workflow revision
 ---
 
@@ -36,6 +36,10 @@ partial and state which mode was chosen.
 
 - One central contribution, with an explicit problem, mechanism, evidence, and
   consequence. Each experiment and figure has a distinct inferential job.
+- Frame a method paper around its supported methodological contribution. Give
+  readers the specific problem and difficulty before unexplained method names;
+  keep experiment-status commentary out of the abstract. Scope each reported
+  result accurately without turning contribution prose into a caveat inventory.
 - Preserve scientific meaning: assumptions, comparison budgets, denominators,
   uncertainty, adverse results, and substantive limitations. Distinguish proposed
   designs, evaluated variants, analytical models, and measured behavior.
@@ -87,6 +91,8 @@ partial and state which mode was chosen.
 - Added references have verified metadata and support the attributed claim.
 - Relevant compilation succeeds; no new unresolved citations/references or
   overfull content. Document pre-existing warnings separately.
+- Inspect rendered appendix pages as well as the main text. A clean compile does
+  not rule out overlapping columns, line numbers, displays, or unreadable glyphs.
 - Review punctuation in context. Avoid repeated semicolon chains and dash
   parentheticals without changing claims, qualifiers, or citation scope.
 - Method-figure delivery includes editable standalone source, PDF, PNG, a design

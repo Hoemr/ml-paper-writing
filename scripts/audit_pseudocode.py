@@ -105,7 +105,8 @@ def main() -> int:
     )
     ap.add_argument("path", type=Path, help="LaTeX file or fragment")
     ap.add_argument("--env", default="algorithmic", help="environment to extract")
-    ap.add_argument("--budget", type=int, default=20, help="max numbered lines")
+    ap.add_argument("--budget", type=int, default=20,
+                    help="numbered-line readability target (exceeding it warns)")
     ap.add_argument("--max-words", type=int, default=12, help="max words per step")
     ap.add_argument("--notation", type=Path, default=None,
                     help="optional .tex file whose tokens count as declared")
@@ -148,9 +149,9 @@ def main() -> int:
             body_macros |= math_macros(rest)
 
         if len(numbered) > args.budget:
-            print(f"FAIL  line budget: {len(numbered)} numbered lines, "
-                  f"budget {args.budget}")
-            failures += 1
+            print(f"warn  line budget: {len(numbered)} numbered lines, "
+                  f"readability target {args.budget}; review compaction")
+            warnings += 1
         else:
             print(f"pass  line budget: {len(numbered)} / {args.budget}")
 

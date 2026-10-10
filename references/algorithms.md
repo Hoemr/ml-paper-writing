@@ -129,7 +129,7 @@ Gotchas, all verified against `algorithmic.sty`:
 
 ## Audit
 
-`scripts/audit_pseudocode.py` reports the checkable half: numbered-line budget,
+`scripts/audit_pseudocode.py` reports the checkable half: numbered-line target,
 over-long steps, period-terminated steps, `\emph` inside a step, and whether the
 math macros in the block appear in the notation file.
 
@@ -139,8 +139,9 @@ python3 scripts/audit_pseudocode.py paper.tex --notation paper.tex
 
 It masks each math span as a single word before counting, so a displayed formula
 does not inflate a step's word count, and it matches `\REQUIRE`/`\ENSURE` as
-un-numbered. Zero failures means the block is within the mechanical gate; it
-does not mean the block is right, which is what the hand trace is for.
+un-numbered. Exceeding the line target produces a compaction warning, not a
+correctness failure. Zero failures means the hard mechanical checks pass; review
+warnings in context and trace the block by hand to assess its scientific content.
 
 ## A worked compaction
 

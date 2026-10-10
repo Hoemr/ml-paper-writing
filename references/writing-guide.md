@@ -50,12 +50,23 @@ are defaults, not mandatory sentence counts, page limits or section orders.
 **Job:** state the specific contribution, mechanism, evidence and supported
 takeaway in a compact passage that can be understood without the paper.
 
-Use five moves when useful: achievement → difficulty/importance → mechanism →
-evidence → implication. “We introduce,” “We prove,” or “We find” must match the
-actual contribution. Include necessary scope and assumptions adjacent to the
-result. Name the baseline and metric when giving a number. A theory abstract
-can lead with its result and assumptions; a negative-results paper should lead
-with the supported finding rather than invent an improvement.
+For a method paper, a useful sequence is: specific problem/setting → unresolved
+difficulty → core insight and method → distinctive mechanism → supported result
+and implication. The opening should explain what must be learned or computed
+and why existing supervision or computation makes it difficult, rather than
+introducing an unexplained method acronym. These are rhetorical moves, not a
+mandatory five-sentence template. A contribution-first opening is appropriate
+when it already supplies the context. A theory abstract can lead with its result
+and assumptions; a negative-results paper should lead with the supported finding.
+
+“We introduce,” “We prove,” or “We find” must match the actual contribution.
+Select the strongest evidence that supports the central contribution. Name the
+baseline, metric, and material comparison conditions when giving a number.
+Computational savings at a shared schedule do not imply equal-accuracy or
+equal-sample efficiency. Report adverse findings where the affected claim is
+assessed; a method abstract need not inventory every unfinished evaluation.
+Never turn mixed accuracy results into a general superiority claim or remove a
+qualification necessary to interpret the particular result being reported.
 
 Avoid a generic field-history opening, acronym lists, contribution inventories,
 or a best-case number presented as the overall result. A proposed mechanism is
@@ -65,10 +76,10 @@ fabricated “extensive evaluation.”
 **Before:** “Language models have made remarkable progress. We propose X, which
 contains A, B and C. Extensive experiments demonstrate its effectiveness.”
 
-**After pattern:** “We introduce X to address [specific failure under stated
-conditions]. X [distinctive operation], allowing [supported consequence]. Under
-[matched evaluation setting], X [measured result against named comparator].
-[Material qualification]. These findings [bounded implication].”
+**After pattern:** “[Specific task] supplies [available signal], but [concrete
+difficulty] limits [desired behavior]. We introduce X, which [core insight and
+distinctive operation]. Under [stated evaluation setting], X [supported result
+against named comparator]. These findings [bounded implication].”
 
 This repairs missing information only when the body supplies it. For an already
 sound abstract, reorder existing statements locally instead of filling the
@@ -109,6 +120,20 @@ construction, resource or analytical distinction, with assumptions where needed.
 experiments” alone does not state a contribution. Do not promise benefits the
 experiments do not measure.
 
+For a method paper, lead with distinct methodological advances: the information
+source or construction, then the credit rule, objective, or other core operation
+when it is a separate contribution. Do not split one operation into artificial
+novelty claims or present a standard identity as a new theorem. Combine empirical
+validation and supporting diagnostics in a short final bullet unless a dataset
+or evaluation methodology is itself the research contribution. “Comprehensive
+experiments” or careful accounting alone is not a core method contribution.
+
+Attach external citations to background claims and comparisons with prior work.
+Attach internal references to this paper's mechanisms, analytical properties,
+and quantitative evidence: the relevant equation, proposition, figure, or table.
+Each result preview should identify a checkable result location. A section-wide
+citation or a distant paragraph-end reference does not support unrelated claims.
+
 **Before:** “Previous methods have several limitations. We ask three questions
 and propose a novel framework. We conduct comprehensive experiments.”
 
@@ -134,6 +159,12 @@ state its relevant boundary, and compare with this paper on the same axis.
 Discuss the closest work directly; do not bury it among distant citations.
 Distinguish “different from our setting” from “inferior.” Avoid a chronological
 author-by-author list unless history itself is the question.
+
+Check whether each paragraph represents a coherent literature family. If a
+narrow heading leaves only one or two closely related papers, consider merging
+it into the adjacent family sharing its mechanism or information source. Keep
+the closest papers explicit within that discussion. Citation count is not the
+goal: broaden coverage through relevant, verified work, not padding.
 
 **Before:** “Work A introduced A. Work B proposed B. Work C developed C. Our
 method is different from all of them.”

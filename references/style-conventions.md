@@ -18,9 +18,9 @@ and why it is true.** It is not an audit log, and it does not argue with itself.
   treat it as the authority.
 - Avoid ambiguous notation collisions. Case distinctions are acceptable when
   conventional and clearly defined; do not rename established symbols casually.
-- **No single-use intermediate variables.** If a symbol is introduced, appears
-  once, and is never seen again, inline it. Write the loss with the log-ratio
-  spelled out rather than defining a margin symbol that appears once. Check this
+- **Avoid unnecessary single-use intermediate variables.** Inline a quantity
+  used once when doing so improves readability. Keep a named intermediate if it
+  clarifies a complex expression or a meaningful mathematical role. Check this
   mechanically: list every symbol in the notation table and count its uses
   outside the table; anything at zero should not be in the table at all.
 - **Reuse one family for related objects.** A quantity and its sampled
@@ -47,8 +47,9 @@ and why it is true.** It is not an audit log, and it does not argue with itself.
 
 ## Tables
 
-- **Capitalise every header cell.** "Stage", "Consumed", "Avg. 7-bench" — not
-  "stage", "consumed". Apply to all tables, including appendix ones.
+- **Capitalise prose header cells.** "Stage", "Consumed", "Avg. 7-bench" — not
+  "stage", "consumed". Apply to appendix tables too, while retaining mathematical
+  symbols and case-sensitive dataset or split identifiers.
 - **Use one spelling for configuration names inside tables and figures.** If the baseline
   is "Ordinary DPO" in a table, it is "Ordinary DPO" everywhere in tables and
   figures; lowercase is fine only in running prose.
@@ -65,6 +66,16 @@ and why it is true.** It is not an audit log, and it does not argue with itself.
 - Select columns relevant to the stated claim, retaining adverse evidence and
   controls necessary to judge it. Move supporting detail without hiding it.
 
+## Mathematical statements
+
+- Name a theorem, lemma, or proposition with a short mathematical noun phrase,
+  such as “Baseline invariance,” “Bounded credit,” or “Score identity.” State
+  conditions, scope, and conclusions in the statement, not a sentence-length
+  title. Earlier-variant provenance belongs in surrounding prose.
+- Distinguish an established identity from the paper's new construction. A
+  bounded coefficient does not by itself prove optimizer stability or causal
+  credit assignment.
+
 ## Figures
 
 - Method schematics and their captions: [figure-workflow.md](figure-workflow.md)
@@ -78,8 +89,8 @@ and why it is true.** It is not an audit log, and it does not argue with itself.
 
 - Aim for about 20 numbered lines in a main-text overview. `algorithmic` spends a line number on `\FOR`,
   `\ENDIF` and `\ENDFOR` as well as on `\STATE`, unless it is loaded with the
-  `noend` option. Past 20 the block is absorbing material that belongs in prose
-  or in an appendix listing.
+  `noend` option. Past 20, review whether material belongs in prose or an appendix
+  listing rather than treating the target as a hard limit.
 - **Every line is one operation, in the imperative.** No subordinate clauses, no
   `\emph`, no definition smuggled into a step. "Set $\bar\kappa_t\gets0$ and skip
   the row" is a conditional written as a clause; give it `\IF`/`\ELSE`.
@@ -87,27 +98,34 @@ and why it is true.** It is not an audit log, and it does not argue with itself.
   definition into a numbered line makes the reader spend two steps learning
   vocabulary before reaching an operation. Definitions go in the block's header
   run, in `\REQUIRE`, or in the notation table, and once only.
-- **The listing states the order; the equations state the formulas.** Every
-  quantity the block computes carries an equation number in the text, and the
-  block references it rather than re-deriving it. A listing that expands a
-  formula the text already numbered duplicates the method section; a listing that
-  computes a quantity with no equation anywhere is a fabrication.
+- **The listing states the order; the method defines the computations.** Link
+  scientific scores, credit rules, and objectives to their numbered equations or
+  explicit helper definitions rather than re-deriving them. Ordinary operations
+  such as sampling, verifying, and freezing a snapshot need no separate equation.
+  Every consequential operation must agree with the method description; an
+  unnumbered operation is not itself evidence of fabrication.
 - **Name the sub-computations; do not expand them.** A helper needing more than
   two lines, or used twice, gets a name. SimSiam's loss is a named `D(p,z)` under
   the loop rather than ten inlined lines. Fuse a guard into the condition it
   guards, and collapse a loop whose body is one formula into a step over the
-  loop index: nesting reads as an implementation transcript, and a block that is
-  23 lines because of five `\ENDIF`s fails the budget without any line looking
-  wrong on its own.
+  loop index: nesting can read as an implementation transcript. A block over the
+  suggested budget because of several `\ENDIF`s deserves a compaction review,
+  while necessary branches take precedence over the suggested line count.
 - **Setup outside the loop, work inside it, the update as one line.**
+- Concision is about conceptual operations, not squeezing implementation detail
+  onto fewer lines. Move chunk precision, storage layout, replay assertions, and
+  explanatory prose to a referenced implementation paragraph. Retain scientific
+  invariants such as frozen scoring, gradient boundaries, masking, and baseline
+  update order in the listing or its immediately adjacent setup.
 - **Caption titles the listing, it does not summarise it.** "Pseudocode of MoCo
   in a PyTorch-like style" names the artifact and stops. A caption that restates
   the steps is a second abstract.
 - If a readable listing needs more space, use a named helper, an appendix
   listing, or prose as appropriate. Do not omit necessary branches to meet a
   line budget. Examples in algorithms.md are examples, not venue mandates.
-- **Audit mechanically, then trace by hand.** Check it against the method section in order: a step with
-  no sentence behind it is a fabrication and a sentence with no step is a gap.
+- **Audit mechanically, then trace by hand.** Check consequential operations
+  against the method section in order. An unsupported scientific computation
+  requires correction; explanatory method prose need not become a numbered step.
   See [algorithms.md](algorithms.md) for the two reference blocks, the LaTeX
   recipes for `algorithmic`/`algpseudocode`/`algorithm2e`, and
   `scripts/audit_pseudocode.py`.
@@ -162,3 +180,9 @@ and why it is true.** It is not an audit log, and it does not argue with itself.
 3. For citation identity, metadata, support and failure handling, follow only
    [citation-workflow.md](citation-workflow.md). Check consistency of the changed
    claims across abstract, body, figures and conclusion.
+4. Render representative main-text pages and every appendix page affected by
+   display or float edits. Inspect at readable size for column overlap, line
+   numbers crossing text, clipped equations, and replacement glyphs. Inspect
+   source encoding separately: layout collisions can look like corrupted text.
+   Full-width displays inserted into line-numbered two-column proofs deserve
+   particular care; prefer column-width aligned derivations when they fit.
