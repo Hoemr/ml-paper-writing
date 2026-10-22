@@ -35,7 +35,7 @@ ambiguous policies explicitly. Do not install or replace templates automatically
 - Required sections, disclosures and forms follow the exact official policy.
 - Source compiles; new undefined references/citations and layout overflow are fixed.
 - Figures have captions and final-size visual review; method-figure rules remain
-  solely in `$ml-method-figure`, reached via [figure-workflow.md](figure-workflow.md).
+  in the built-in [figure-workflow.md](figure-workflow.md) module.
 - Anonymous artifacts follow venue policy without deleting scientifically needed
   self-citations. Supplementary material and reproducibility instructions are coherent.
 

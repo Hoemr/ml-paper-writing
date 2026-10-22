@@ -1,297 +1,189 @@
-# Narrative and section writing
+# Narrative, complete drafting and section writing
+
+Contents: evidence and research types; whole-paper workflow; rewriting;
+abstract/introduction routes; related work; method and theory; experiments;
+discussion and limitations; conclusion.
 
 ## Evidence before prose
 
-Read the available manuscript, README, results and experimental settings. For
-each material claim, note its evidence location, comparator, budget, metric,
-aggregation, uncertainty, and scope. A small working table is enough; reuse an
-existing map after checking it. Do not add a separate document unless useful to
-the deliverable. Keep measured results, analytic guarantees and proposals distinct.
-
-State the contribution in one sentence: what changes, why that change matters,
-and what evidence supports it. For an analysis paper, the contribution may be a
-controlled distinction or a counterexample rather than a new algorithm. Do not
-force a novelty narrative that the evidence cannot support.
-
-When sources are clear, produce the requested draft and state framing assumptions
-with it. When sources conflict, narrow the claim and flag the exact conflict;
-ask only for information needed to resolve it. Drafting does not authorize running
-new experiments, submitting, or installing external services.
-
-## A short procedure for rewriting
-
-1. Read the requested section, the evidence supporting it, and the corresponding
-   section below. For an abstract or conclusion, also inspect the body claims.
-2. Extract the facts to keep: contribution, mechanism, comparisons, assumptions,
-   units, uncertainty and limitations. Identify missing facts before drafting.
-3. Give each paragraph one job; use the chapter pattern to fix missing logical
-   links before polishing individual words. Change only the requested scope.
-4. Rewrite from those facts. Do not fill empty pattern slots with plausible
-   motivation, a theorem, an experiment or a citation. Keep already-clear prose.
-5. Compare original and rewrite against the facts. Run the equivalence pass in
-   [reviewer-guidelines.md](reviewer-guidelines.md), then the applicable artifact
-   checks in [style-conventions.md](style-conventions.md).
-
-The examples below are authored teaching examples, not research results or prose
-to insert into a user's paper. Square-bracket fields require verified manuscript
-content; they are not citation keys. Unbracketed example facts apply only to that
-example. A rewrite is not permission to change the scientific conclusion.
-When an original passage overclaims relative to its evidence, report a necessary
-narrowing as a substantive correction, not a meaning-preserving rhetorical edit.
-Do not introduce new support to rescue it.
-
-## Chapter patterns and examples
-
-Read the requested chapter; a complete draft needs all relevant chapters. These
-are defaults, not mandatory sentence counts, page limits or section orders.
-
-### Abstract
-
-**Job:** state the specific contribution, mechanism, evidence and supported
-takeaway in a compact passage that can be understood without the paper.
-
-For a method paper, a useful sequence is: specific problem/setting → unresolved
-difficulty → core insight and method → distinctive mechanism → supported result
-and implication. The opening should explain what must be learned or computed
-and why existing supervision or computation makes it difficult, rather than
-introducing an unexplained method acronym. These are rhetorical moves, not a
-mandatory five-sentence template. A contribution-first opening is appropriate
-when it already supplies the context. A theory abstract can lead with its result
-and assumptions; a negative-results paper should lead with the supported finding.
-
-“We introduce,” “We prove,” or “We find” must match the actual contribution.
-Select the strongest evidence that supports the central contribution. Name the
-baseline, metric, and material comparison conditions when giving a number.
-Computational savings at a shared schedule do not imply equal-accuracy or
-equal-sample efficiency. Report adverse findings where the affected claim is
-assessed; a method abstract need not inventory every unfinished evaluation.
-Never turn mixed accuracy results into a general superiority claim or remove a
-qualification necessary to interpret the particular result being reported.
-
-Avoid a generic field-history opening, acronym lists, contribution inventories,
-or a best-case number presented as the overall result. A proposed mechanism is
-not a measured achievement. Missing results stay an author-facing gap, not a
-fabricated “extensive evaluation.”
-
-**Before:** “Language models have made remarkable progress. We propose X, which
-contains A, B and C. Extensive experiments demonstrate its effectiveness.”
-
-**After pattern:** “[Specific task] supplies [available signal], but [concrete
-difficulty] limits [desired behavior]. We introduce X, which [core insight and
-distinctive operation]. Under [stated evaluation setting], X [supported result
-against named comparator]. These findings [bounded implication].”
-
-This repairs missing information only when the body supplies it. For an already
-sound abstract, reorder existing statements locally instead of filling the
-pattern with additional claims.
-
-**Completed teaching example.** Assumed facts: mean-normalized token selection;
-matched counts for confidence-ranked and random masks; task differences change
-sign; one training run per configuration. These are example premises, not results
-for a new manuscript:
-
-> Token selection can change both reward-term membership and normalization. We
-> compare confidence-ranked and uniform masks at matched retained counts under
-> the same mean normalization. Across the evaluated tasks, their downstream
-> differences vary in direction. Each configuration has one training run, so the
-> comparisons establish neither superiority nor equivalence. The findings support
-> using matched random controls and explicit normalization when interpreting
-> confidence-based selection.
-
-The qualifier constrains the result; it is not an apology. This is an analysis
-abstract, so it does not manufacture a new algorithm or a remarkable number.
-
-### Introduction
-
-**Job:** make the research question feel necessary and explain why the proposed
-answer or analysis is informative.
-
-A useful sequence is: concrete problem and consequence → closest approaches →
-specific unresolved boundary → insight → approach overview → qualified evidence
-preview → short contribution list. The gap must follow from the preceding work,
-not appear as an unsupported “no existing method.” Keep broad field history
-short. Explain the mechanism once in plain language before introducing notation.
-Put essential motivation and contributions early; page budgets come from the
-actual venue rather than a universal 1.5-page rule.
-
-Usually a few contribution bullets suffice. Each names a supported result,
-construction, resource or analytical distinction, with assumptions where needed.
-“We study” is fine when followed by what the study establishes; “extensive
-experiments” alone does not state a contribution. Do not promise benefits the
-experiments do not measure.
-
-For a method paper, lead with distinct methodological advances: the information
-source or construction, then the credit rule, objective, or other core operation
-when it is a separate contribution. Do not split one operation into artificial
-novelty claims or present a standard identity as a new theorem. Combine empirical
-validation and supporting diagnostics in a short final bullet unless a dataset
-or evaluation methodology is itself the research contribution. “Comprehensive
-experiments” or careful accounting alone is not a core method contribution.
-
-Attach external citations to background claims and comparisons with prior work.
-Attach internal references to this paper's mechanisms, analytical properties,
-and quantitative evidence: the relevant equation, proposition, figure, or table.
-Each result preview should identify a checkable result location. A section-wide
-citation or a distant paragraph-end reference does not support unrelated claims.
-
-**Before:** “Previous methods have several limitations. We ask three questions
-and propose a novel framework. We conduct comprehensive experiments.”
-
-**After pattern:** “Existing [approach] addresses [problem] through [mechanism],
-but the available comparisons also change [confounding factor]. They therefore
-leave [specific attribution] unresolved. We hold [control] fixed and vary
-[intervention] to test it. The results establish [supported finding], within
-[evaluated scope].”
-
-**Contribution example:** replace “We provide extensive experiments” with
-“We compare [interventions] under a matched [budget], finding [observed result].”
-Replace “We provide theory” with “We prove [statement] under [assumptions].”
-Neither pattern licenses inventing the result or theorem.
-
-### Related work
-
-**Job:** place the contribution among approaches addressing the same question
-and make the closest methodological distinction inspectable.
-
-Organize paragraphs by signal source, assumption, objective or problem boundary.
-For each family: explain the common mechanism, cite verified representatives,
-state its relevant boundary, and compare with this paper on the same axis.
-Discuss the closest work directly; do not bury it among distant citations.
-Distinguish “different from our setting” from “inferior.” Avoid a chronological
-author-by-author list unless history itself is the question.
-
-Check whether each paragraph represents a coherent literature family. If a
-narrow heading leaves only one or two closely related papers, consider merging
-it into the adjacent family sharing its mechanism or information source. Keep
-the closest papers explicit within that discussion. Citation count is not the
-goal: broaden coverage through relevant, verified work, not padding.
-
-**Before:** “Work A introduced A. Work B proposed B. Work C developed C. Our
-method is different from all of them.”
-
-**After pattern:** “[Verified family A] obtains [signal] from [source], while
-[verified family B] estimates it using [other source]. X instead uses [its
-source]. The closest [verified work] shares [common construction] but differs
-in [specific assumption or operation].”
-
-Keep references on the clauses they support. Verify both existence and claim
-support using [citation-workflow.md](citation-workflow.md). Group citations only
-when they support the same statement. Do not claim priority from an incomplete
-search or cite generously merely to flatter potential reviewers.
-
-### Method or system design
-
-**Job:** explain the final mechanism so an expert can reconstruct it.
-
-Start with inputs → distinctive computation → outputs → objective/update. Then
-define notation at first use, state assumptions, and present the operations in
-dependency order. Before each major equation, say what quantity it defines and
-why it is needed; afterwards explain its consequence or role. Explain design
-choices through the problem they address, not a diary of discarded versions.
-
-Make scoring targets, normalization denominators, frozen/trainable components,
-gradient boundaries and consequential edge cases explicit when applicable.
-Give necessary architecture, hyperparameters and reproduction details in the
-body or a referenced appendix. A named helper is not a substitute for its
-definition. Algorithm formatting belongs to style-conventions/algorithms; method
-figure construction belongs to [figure-workflow.md](figure-workflow.md).
-
-**Teaching example facts:** X scores the same sampled tokens under two contexts,
-using a frozen model; it subtracts their scores, centers the differences within
-the trajectory, and adds the correction to a verified outcome anchor.
-
-**Before:** “We calculate a score and normalize it. Our advantage is given by
-Eq. [number]. We then train the model.”
-
-**After:** “A frozen model scores the same sampled tokens under two contexts.
-Their score difference defines the token correction. We center the differences
-within each trajectory and add them to its verified outcome anchor to obtain
-the learning signal.”
-
-The example states data flow; the actual paper must still define the contexts,
-score, reduction, degenerate cases and loss. A centered scalar mean does not
-by itself establish an unchanged policy gradient or correct causal credit.
-
-### Experiments and results
-
-**Job:** test a stated claim with an interpretable comparison.
-
-For each experiment, give question → control/setup → observed result → bounded
-interpretation. Separate the diagnostic quantity from the downstream outcome.
-Document matching budgets and uncertainty units; refer to detailed settings
-rather than repeat the full recipe in every paragraph. Report mixed results on
-the same terms as favorable results.
-
-**Before:** “X performs better, demonstrating the effectiveness of our design.”
-
-**After pattern:** “At fixed [budget], X changes [metric] from [baseline value]
-to [X value] on [evaluation scope]. [Other relevant result/uncertainty]. This
-supports [tested claim] within [boundary].”
-
-If evidence is only a short memory profile, say “peak memory in this profile,”
-not “training efficiency” or “faster training.” If a difference is not resolved
-by available uncertainty, it establishes neither equivalence nor superiority.
-
-### Limitations and discussion
-
-**Job:** state which inferences the evidence cannot support and why that matters.
-
-Connect a boundary to its consequence: limited seeds → unresolved training
-variability; independent-distribution assumptions → no direct prediction of a
-shared-parameter optimizer. Place essential qualifications near the affected
-claim and follow the venue's required limitations format. Further experiments
-are future work until completed. A caveat is not resolved because it is admitted.
-
-Detailed defensive-writing decisions and contrastive examples have a single
-owner: [reviewer-guidelines.md](reviewer-guidelines.md#defensive-writing-examples).
-
-### Conclusion
-
-**Job:** leave the reader with the supported finding and its consequence.
-
-Close the introduction's question: what the work established, what mechanism or
-comparison explains it, and what follows within scope. Do not add a new result,
-stronger theorem, priority claim or generalization. Avoid replaying a module list
-or every benchmark value. Keep a future direction separate from the established
-conclusion and tied to a specific unresolved boundary.
-
-**Before:** “We presented X with A, B and C. Experiments prove X is broadly
-effective. We will investigate many exciting applications.”
-
-**After pattern:** “Our [analysis/comparison] establishes [supported finding]
-under [conditions]. This identifies [bounded consequence for the original
-problem]. [Specific unresolved question] is the next evaluation target.”
-
-If the body has mixed results, the conclusion must retain that interpretation.
-For instance, “effects vary across the evaluated settings” cannot become “the
-method consistently improves performance.”
-
-## Reader expectations
-
-Use Gopen–Swan's useful defaults: keep subject and verb close, supply familiar
-context before new information, express action in verbs, and give each paragraph
-one function. Put the key inference where the sentence gives it emphasis.
-
-Prefer concrete metrics to “performance,” stable terminology to synonyms, and
-short labels to unexplained acronyms. Replace vague pronouns with nouns when
-their referent is ambiguous. Delete filler, generic openings and decorative
-intensifiers. Active voice often clarifies the actor; passive voice is appropriate
-when the operation or object is the subject of interest.
-
-Keep epistemic qualifiers when meaningful. “May,” “preliminary,” and “under these
-assumptions” can be essential evidence boundaries. Use “combine” or “extend” when
-that accurately describes the contribution; stronger verbs do not create novelty.
-
-## Evidence and reproduction
-
-Report observed baselines and tuning conditions, splits, seeds, hyperparameters,
-hardware and compute accounting where available. Label an error bar's meaning
-and sampling unit. Distinguish evaluation uncertainty from training-seed variance.
-Use paired comparisons when paired observations exist; do not invent confidence
-intervals or tests from insufficient summary statistics. Small differences prove
-neither superiority nor equivalence by themselves.
-
-For method figures, read [figure-workflow.md](figure-workflow.md). For artifact
-checks, use [style-conventions.md](style-conventions.md). For a final small wording
-pass, use [reviewer-guidelines.md](reviewer-guidelines.md). Provenance is in
-[sources.md](sources.md); this guide makes no claims about reviewer reading rates.
+Read the current manuscript or available method, results, figures and author
+decisions. Identify what changes, why it matters and what establishes it.
+Use [evidence-workflow.md](evidence-workflow.md) for sources, claim mappings and
+updates. Do not require a separate ledger for a local edit.
+
+Choose a central contribution and rank the supporting work. Each experiment,
+theorem and figure needs an inferential role. A paper can combine several
+evidence types without claiming that each is an independent validation of the
+same thing.
+
+| Research type | Narrative center and evidence boundary |
+| --- | --- |
+| Method | Explain the specific difficulty, insight and operation; test the claimed benefit under interpretable comparisons. A module list is not an insight. |
+| Theory | State the question, assumptions, result and consequence; keep theorem guarantees separate from empirical optimizer behavior. |
+| Empirical analysis or negative result | Establish the distinction, phenomenon, failure condition or counterexample; no new algorithm is needed to make it a contribution. |
+| Benchmark, dataset or resource | Explain the research capability, construction and demonstrated uses; dataset size or a working interface alone is not utility evidence. |
+| Systems | Connect workload and bottleneck to implementation and measured benefit; use [systems-conferences.md](systems-conferences.md). |
+| Survey | Organize verified literature around a synthesis or question. Do not describe a selective review as systematic without a documented search and selection process. |
+
+Mixed papers can use several branches. Match section responsibilities to the
+study rather than imposing every section, an independent Discussion or a fixed
+figure count.
+
+## From materials to a complete manuscript
+
+When a full draft is requested, infer language, format, current source and
+author decisions from context. Without a specified venue, use a sensible
+research-paper structure and leave exact venue limits undecided. Do not require
+a venue, bilingual version, cover letter or tracked changes unless needed.
+
+### Assess support locally
+
+| State | Action |
+| --- | --- |
+| Sufficient | Complete the requested sections and linked components. |
+| Local gap | Write supported material and identify only the dependent sentence, parameter, citation or component as unresolved. |
+| Conflicting sources | Compare object, version and conditions before declaring conflict. Keep the affected claim provisional and continue independent work. |
+| Planned results only | Write supported background, implemented methods and a research plan as appropriate. Do not fabricate Results or call it a completed research paper. |
+
+Distinguish extracting a reported number from producing new statistical results.
+Retraining, fitting a new model, choosing a new threshold or running a new
+experiment is not ordinary writing preparation. Missing hyperparameters cannot
+be filled with package defaults.
+
+### Develop and complete the argument
+
+Establish the main question and advance, then connect decisive evidence and
+necessary controls. A short outline can support drafting internally. If drafting
+was authorized, continue to finished sections rather than requesting permission
+to move beyond the outline.
+
+A useful dependency order is results/methods and figure roles, then introduction
+and discussion, then title/abstract finalization. This is not a mandatory
+chronology: authors may already have a strong introduction. Revisit early
+summaries once the core conclusions are stable.
+
+Complete the requested body, captions, appendix material and bibliography
+interfaces. The paper explains findings; captions explain how to read panels;
+methods explain how results were obtained; appendix preserves needed detail.
+Move unique definitions before deleting duplicated supplementary prose.
+Mark unfinished draft passages clearly or place queries in an author note.
+Unknown disclosures, permissions and access states stay unknown.
+
+Check title, abstract, introduction promises, results, discussion and conclusion
+against the same main claim. Do not promote an exploratory variant into the
+final method because its result is more favorable. Deliver the supported draft
+and exact gaps, distinguishing content completion from file generation, rendering
+and submission preparation.
+
+## Revising existing prose
+
+1. Read the requested passage, supporting evidence and relevant section route.
+2. Identify what the paragraph contributes and which facts/conditions must stay.
+3. Diagnose the actual problem: missing interpretation, broken transition,
+   unsupported claim, repeated defense or awkward language.
+4. Repair the smallest coherent scope. Preserve successful wording and author
+   choices. A structural problem may require more than synonym replacement.
+5. Use [reviewer-guidelines.md](reviewer-guidelines.md) for editorial decisions
+   and the meaning-equivalence check, then check affected artifacts.
+
+If the original overclaims, report a necessary narrowing as a scientific
+correction, not a meaning-preserving style edit. Do not invent support to rescue
+it. If there is no material problem, leave the passage unchanged.
+
+## Title, abstract and introduction
+
+Read [abstract-and-title.md](abstract-and-title.md) for selecting information,
+explaining the idea, representative evidence and compression. Read
+[introduction.md](introduction.md) for the problem-capability-gap-advance
+relationship, paragraph continuity and promise checks. These files own the
+detailed guidance; their moves are not sentence or paragraph quotas.
+
+## Related work
+
+Read [related-work.md](related-work.md) for source comparison, meaningful
+literature groups, closest-predecessor attribution and comparative paragraphs.
+The citation workflow owns source verification, while this route owns how
+those sources form an intellectual comparison.
+
+## Method, system design and theory
+
+Read [method-writing.md](method-writing.md) for conceptual overview, problem
+setup, dependency order, equations, information/gradient boundaries,
+reproducibility and formal-result exposition. Use the existing style,
+algorithm and figure routes for artifact mechanics. Systems papers also use
+[systems-conferences.md](systems-conferences.md).
+
+## Experiments and results
+
+Read [experiments-results.md](experiments-results.md) for evaluation setup,
+question-led organization, artifact readouts, main comparisons, ablations,
+transfer, efficiency and qualitative analysis. Do not replace this writing
+work with a checklist of every experiment a paper might run.
+
+## Discussion: explain what the findings change
+
+Discussion interprets the research rather than repeating Results or enumerating
+defects. Start with the main increment in understanding or capability. A method
+paper may explain which constraint the construction changes; an analysis what
+attribution is now possible; a resource which research tasks become feasible.
+
+For a finding worth discussing, consider:
+- The actual observation and evidence type.
+- What it adds to the central question.
+- An explanation supported by this study or verified literature.
+- Alternative explanations that would change interpretation.
+- The comparison or measurement that could distinguish those explanations.
+
+Use only the elements the argument needs. Not every significant value needs a
+mechanism paragraph, and not every paragraph needs a future experiment.
+
+### Interpret without upgrading evidence
+
+Separate observation, supported interpretation and hypothesis. State established
+observations directly, placing uncertainty on the untested link. A feature
+attribution explains the fitted model's output, not necessarily the data
+generating process. An ablation with retraining is different from a frozen-model
+intervention. A theorem about independent variables may illuminate an effect
+without proving shared-parameter optimizer behavior.
+
+For mixed results, explain the pattern actually observed. If the effect changes
+direction across settings, identify supported commonalities or differences
+before proposing a cause. Candidate explanations such as data size or label
+noise remain hypotheses unless discriminating evidence was gathered.
+Do not replace heterogeneous outcomes with a generic "robust benefit."
+
+Distinguish different observed point estimates from established effect
+heterogeneity. Changing signs alone does not establish a task interaction or
+reliable task-specific usefulness; describe the observed pattern and separate
+the explanation that remains to be tested.
+
+### Compare specific studies
+
+Compare tasks, input information, budgets, model families, measurement levels,
+metrics and conclusions as relevant. Explain whether a study supports a
+mechanism candidate, provides a contrast or tests the same claim. "Consistent
+with previous work" is insufficient without stating what is comparable.
+Experiments in another setting cannot substitute for this paper's missing
+measurement. Learn structure from supplied reference papers, not their
+experimental strength or hypothesis history.
+
+### Make limitations precise and proportionate
+
+Explain what information or design coverage is missing and which inference it
+limits. When useful, identify a targeted test that distinguishes plausible
+explanations. Do not guess the direction of bias, guarantee that more data will
+improve performance, or append a shopping list of experiments to every paragraph.
+
+Few training runs limit the precision of estimated run-to-run variability; one
+run cannot estimate that variability. Missing equal-quality curves leave that
+efficiency claim unresolved. These are different limitations.
+Retain boundaries near affected claims and follow any required venue limitations
+section. A caveat is not resolved merely because it has been admitted.
+Defensive-writing decisions have one owner:
+[reviewer-guidelines.md](reviewer-guidelines.md#defensive-writing-examples).
+
+## Conclusion
+
+Read [conclusion.md](conclusion.md) to select the answer, decisive support and
+consequence, preserve current findings and scope, and close the introduction's
+promise without a component inventory or a new claim.

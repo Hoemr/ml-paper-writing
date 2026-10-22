@@ -79,11 +79,31 @@ and why it is true.** It is not an audit log, and it does not argue with itself.
 ## Figures
 
 - Method schematics and their captions: [figure-workflow.md](figure-workflow.md)
-  routes to `$ml-method-figure`, the single owner of construction and QA rules.
+  owns the built-in construction and QA workflow, with supporting resources in
+  `method-figure/`.
 - Measured plots: use the relevant plotting skill (such as `$nature-figure`)
   when available. Preserve data and uncertainty, label units and comparisons,
   and follow the venue's caption style. A mechanism diagram need not invent
   numerical results to earn its place.
+
+### Experimental captions and appendix interfaces
+
+Experimental figures and their captions also need semantic checks. Identify
+each panel as a schematic, observation, estimate or model diagnostic. Define
+the actual metric, units, groups, n, independent unit, error bars/intervals and
+statistical comparison where applicable. A statistical sentence must not appear
+to apply to a schematic or a panel that uses a different population.
+
+Check the drawn quantity against source data, body, methods and appendix.
+Distinguish training-seed variation from evaluation uncertainty and computational
+repetition from independent model training. Captions help a reader interpret
+the evidence; Results reports findings and Discussion interprets them. Preserve
+necessary scope without inserting an anticipatory rebuttal into every caption.
+
+When moving material to the appendix, retain unique definitions and a usable
+main-text entry point. Use [evidence-workflow.md](evidence-workflow.md) for source
+changes and renumbering. Experimental plots do not inherit the TikZ construction
+gate for method schematics.
 
 ## Algorithms
 

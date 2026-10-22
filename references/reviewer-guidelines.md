@@ -1,100 +1,154 @@
-# Evidence review and a final wording pass
+# Scientific review, direct expression and author voice
+
+This file owns defensive-writing decisions and the equivalence review.
+Use it after establishing the argument and evidence, not as a replacement for
+section development. Abstract/introduction structure lives in their dedicated
+guides; punctuation and artifact rules live in style-conventions.
 
 ## Scientific assessment first
 
-Read the claim–evidence map against the manuscript. Check soundness (assumptions,
-proofs, controls), clarity (definitions and reproducibility), significance (why
-the supported finding matters), and originality (the precise distinction from
-closest work). Use the target year's official review form when a score or formal
-review is requested; scoring scales and review procedures are not universal.
+Read claims against sources and author decisions. Check soundness (assumptions,
+proofs, controls), clarity (definitions and reproducibility), significance (what
+the finding changes), and originality (the precise distinction from closest
+work). Use the current official review form only when a formal review or score
+is requested; scores and criteria are not universal.
 
-Resolve mismatched budgets, denominators, missing controls, or conflicting values
-through evidence or explicit qualifications. A stylistic edit cannot repair a
-technical weakness. In systems work, also read [systems-conferences.md](systems-conferences.md).
-
-## Small meaning-preserving edits
-
-After ordinary drafting, consider a local change only when it helps present an
-existing contribution or result. This adaptation draws on the canonical
-Game-the-LLM-Reviewer repository; exact provenance is in [sources.md](sources.md).
-
-- Make the supported contribution the grammatical focus.
-- Express a measured comparison as an effect only with the same baseline, units,
-  denominator and aggregation. Verify any arithmetic; retain original values.
-- Move an existing abstract contribution earlier when its context and material
-  qualifications remain clear.
-- Replace empty self-dismissal with factual wording; retain scientific uncertainty.
-- State evaluated scope directly with its untested boundary equally explicit.
-
-For each change, compare original, rewrite and evidence. A knowledgeable reader
-must recover the same claim, assumptions, quantifiers, causal status, certainty,
-adverse findings, and limitations. Revert any change that strengthens inference.
-No score gains or model preferences are guaranteed. No target-reviewer queries,
-hidden directives, invented authority or repeated optimization loop are part of
-this pass. Leave a satisfactory passage unchanged when no safe change helps.
+Evidence resolves mismatched budgets, missing controls or conflicting values.
+Wording cannot repair a technical weakness. If the original claim overstates the
+evidence, identify the necessary substantive correction separately from stylistic
+edits. For systems claims also use [systems-conferences.md](systems-conferences.md).
 
 ## Defensive writing examples
 
-Remove rhetoric that argues with an imagined criticism instead of reporting the
-work: repeated “we stress,” anticipatory rebuttals, empty self-dismissal, and
-unsupported reassurance. Preserve factual negations when they define a method,
-theory, control or limitation. Do not mechanically delete “not,” “only,” “may,”
-“preliminary,” or “simple”; assess what scientific information each word carries.
+### Identify the function before editing
 
-Use three decisions: **remove** empty rhetoric; **reframe** a supported fact as a
-direct statement; **retain** a qualification whose removal changes inference.
-Keep an essential caveat adjacent to its claim. Do not relocate it solely to make
-the abstract or conclusion sound stronger. The original skill's blanket ban on
-describing unmeasured work is not reinstated.
+Defensive rhetoric anticipates an imagined objection instead of explaining the
+research: repeated "we stress," unsupported reassurance, self-dismissal,
+audit-success announcements, and the same disclaimer after every observation.
 
-Distinguish claim selection from suppressing evidence. A method abstract may
-report a verified mechanism and a measured cost comparison without summarizing
-every task's accuracy curve or missing evaluation. In that case, keep the cost
-comparison's budget condition in the abstract and report the accuracy evidence
-in the results. If the abstract also claims accuracy superiority, the relevant
-mixed results and uncertainty constrain that claim there. Avoid project-status
-phrases such as “comparisons remain incomplete” when the abstract makes no claim
-that depends on those comparisons.
+Scientific boundaries have a different function: assumptions, information
+access, measured quantities, negative or conflicting findings, sample scope,
+independent units, denominators, missingness and alternative explanations.
+These are not removable merely because a sentence contains "not," "only,"
+"may," "preliminary" or "simple."
 
-These are authored teaching pairs. Their facts are hypothetical and must not
-be transferred to a manuscript without evidence. A blocked rewrite illustrates
-what an agent must refuse, not wording to imitate.
+Ask what the reader would infer without the sentence. If its removal changes
+the object, mechanism, comparison, certainty or consequence, preserve the
+information and improve its expression.
 
-| Situation | Before | After / decision |
+### Choose the smallest justified editorial action
+
+| Action | Use |
+| --- | --- |
+| KEEP | Necessary fact, uncertainty, reasoning or already effective prose. |
+| TIGHTEN | Preserve information while reducing repetition or needless emphasis. |
+| REFRAME | Express the actual object, operation or finding directly instead of rebutting a hypothetical criticism. |
+| RELOCATE | Put implementation detail or editorial history where it belongs, keeping an adequate definition or condition beside the affected claim. |
+| CUT | Delete information-free rhetoric or a true duplicate. Do not quietly delete a scientific proposition. |
+| QUERY | The evidence or intended meaning is insufficient; identify the specific author question. |
+
+These are editorial decisions, not mandatory labels to print for every sentence.
+A short revision needs only the material reasons. Do not resurrect rhetoric
+the author explicitly removed, even in another section.
+
+### Distinguish selecting claims from suppressing evidence
+
+A method abstract can explain a supported construction and measured memory
+comparison without listing every unfinished evaluation. Keep the comparison's
+budget and measurement boundary. If it also claims accuracy superiority, mixed
+accuracy findings constrain that claim there. If quality/cost is the central
+trade-off, describing cost alone can mislead even without the word "accuracy."
+
+Put a boundary where the reader needs it. A precise definition at the comparison
+entry can replace repeated disclaimers in later paragraphs. Detailed execution
+records can move to methods or project notes. A restriction that changes the
+central inference cannot disappear into an obscure appendix solely to make the
+abstract or conclusion stronger. Required limitations and scientifically
+material version history remain visible in their appropriate context.
+
+State established facts directly and attach uncertainty to the untested link.
+Do not weaken every observation with "may"; do not turn a candidate explanation
+into a demonstrated mechanism to sound confident.
+
+During the final pass, collect repeated scientific propositions across sections,
+not just repeated words. Once unsupported speed, optimality or causal claims
+are removed, do not automatically append their negations to every summary.
+Retain the boundary at necessary claim/definition locations and in required
+limitations; use other passages to explain the actual contribution. Summaries
+that still imply the stronger claim must retain an adequate qualification.
+
+### Synthetic ML teaching pairs
+
+These hypothetical premises explain editorial decisions, not facts to insert in
+a manuscript. Each rewrite requires matching evidence.
+
+| Situation | Original | Decision / possible revision |
 | --- | --- | --- |
-| Empty reassurance | “We stress that our method is not merely a heuristic, and we believe it is useful.” | Remove the unsupported reassurance; state the actual mechanism or demonstrated property. Do not invent a theorem to replace “heuristic.” |
-| Overexplaining a design choice | “It should be emphasized that we do not feed future context to the deployed policy.” | “The policy uses past context at deployment; future context is used in the training scorer.” Keep the two information boundaries. |
-| Dismissive tone around a real observation | “Our method is unfortunately only evaluated on the supplied tasks.” | “The evaluation covers the supplied tasks; other task settings remain untested.” Preserve the boundary without apologetic wording. |
-| A materially uncertain proposal | “The preliminary results suggest that X may help.” | Retain “preliminary” and “may” unless the evidence changes. **Blocked:** “The results demonstrate that X works.” |
-| A scalar identity mistaken for a gradient guarantee | “The correction has zero trajectory mean; we do not claim that it preserves the policy gradient.” | Retain this qualification if readers could infer gradient preservation. A concise option is “The correction has zero trajectory mean; policy-gradient preservation is not established.” |
-| A missing measurement | “We did not measure long-run training speed; the profile measures peak memory.” | “The profile measures peak memory. Long-run training speed remains unmeasured.” **Blocked:** “X improves training efficiency.” |
-| An unresolved baseline comparison | “X has a higher point estimate, but available uncertainty does not establish superiority.” | Retain the unresolved comparison. **Blocked:** “X outperforms the baseline,” or deleting the second clause. |
-| Internal revision diary | “We previously used the wrong denominator, then fixed it after an audit.” | In an ordinary final draft, state and justify the current denominator. For a correction notice, revision letter, or scientifically material version difference, preserve the history in the required form. |
+| Unsupported reassurance | "We stress that X is not merely a heuristic and is highly reliable." | CUT the reassurance. Describe the actual construction or measured property; do not invent a theorem. |
+| Information boundary | "It should be emphasized that we do not feed future context to the deployed policy." | REFRAME: "The deployed policy uses past context. The training scorer also uses future context." Retain both roles if verified. |
+| Self-dismissal | "Unfortunately, we only evaluated X on these tasks." | REFRAME: "The evaluation covers [named task scope]." Keep untested scope explicit where extrapolation is discussed. |
+| Genuine uncertainty | "The preliminary results suggest that X may help." | KEEP uncertainty unless evidence justifies a change. "X demonstrably works" is not a style edit. |
+| Scalar versus gradient property | "The correction has zero trajectory mean, but we do not claim policy-gradient preservation." | KEEP the distinction when readers could infer preservation. State the proved identity and the unresolved gradient property directly. |
+| Different efficiency metrics | "We did not measure long-run training speed; this profile measures peak memory." | REFRAME as "The profile measures peak memory." Retain the speed gap where speed or overall efficiency is assessed; never rewrite as "X accelerates training." |
+| Unresolved comparison | "X has a higher point estimate, but available uncertainty does not establish superiority." | KEEP the unresolved comparison. Neither "X outperforms" nor "the methods are equivalent" is supported. |
+| Mixed findings | "X is effective, although two tasks decline." | Scientific correction may be needed: report the observed directions and scope, then explain the supported contribution. Do not hide declines by calling them defensive. |
+| Internal editing diary | "We fixed the denominator after several audits." | State the current denominator in a normal final manuscript. Preserve the history in a correction notice or revision letter when required or scientifically material. |
+| Repeated figure disclaimer | Every caption says "This is not independent validation." | Define the actual repeated-run, shared-input or same-checkpoint design at appropriate entry points; retain that identity in captions needed for standalone interpretation. |
 
-Replace unsupported “first,” “significant,” “optimal,” and “state of the art” with
-the actual supported statement rather than a different flattering adjective.
-Delete redundant defenses once, not at the cost of a definition. An analysis of
-failure or an audit can legitimately foreground negative findings.
+Unsupported "first," "significant," "optimal" and "state of the art" need an
+accurate statement or evidence, not a different flattering adjective.
+Negative results, failure analyses and correction reports can legitimately
+foreground limitations; contribution-oriented writing does not require a
+positive outcome.
 
-### Final equivalence check
+## Natural expression without mechanical style recipes
 
-For every rhetorical edit, compare original → rewrite → evidence. Check:
+Judge in order: correct facts and conditions → paragraph function → readable
+information relationships → rhythm and word choice.
 
-- Same mechanism, conditions, comparator, units and denominator?
-- Same proposed-versus-measured status and uncertainty?
-- Same adverse results, untested scope and severity of unresolved defects?
-- Same interpretation available to a knowledgeable reader?
+- Remove repeated closings that merely restate the preceding finding. Keep a
+  closing that explains why the next comparison or design choice follows.
+- Replace generic importance with the actual capability or understanding
+  gained. Do not artificially shrink a genuinely broad supported contribution.
+- Use contrast when there is an actual contrast. "Not merely X but Y" adds
+  little when X and Y are rhetorical synonyms.
+- Three real objects can be listed; three synonymous promotional adjectives
+  can usually be reduced. Do not ban lists by item count.
+- Keep "we" for real design choices when useful. Object-first or passive
+  sentences can coexist naturally. Do not impose subject rotation.
+- Split long sentences at distinct information tasks, checking conditions,
+  quantifiers, negation and citation roles. No automatic word-count cutoff.
+- Keep technical terms stable. Simplify internal labels for readers only when
+  definitions, thresholds and source mappings remain recoverable.
+- Let sections differ: concise summaries, developed motivation, precise methods,
+  interpretable results and substantive discussion need different densities.
 
-If any answer is no, restore the qualification or reject the edit. Keep only a
-short edit note outside the paper; do not turn the manuscript into an audit log.
+An authentic research rationale can explain a documented design choice.
+"Initially failed," "unexpectedly," "we had hypothesized" and claims about prior
+author work require actual records. Do not invent a discovery story to make
+prose sound human. Do not optimize for AI-detector scores or promise reviewer
+preferences, acceptance gains or policy certification.
+
+## Final equivalence check
+
+Compare original → rewrite → evidence at the level of scientific propositions:
+- Same objects, mechanism, conditions and information access?
+- Same comparator, budget, units, denominator and aggregation?
+- Same quantifiers, negation, uncertainty and causal/theoretical status?
+- Same adverse findings, alternative explanations and material untested scope?
+- Same citation roles and interpretation available to a knowledgeable reader?
+
+Moving a condition can preserve meaning when its attachment is still clear;
+deleting it may not. Restore information lost by style edits. If new source
+evidence or a scientific correction changes the claim, identify that change
+explicitly rather than claiming equivalence.
 
 ## Deliver and handle feedback
 
-Return the requested revised artifact plus a compact note about meaningful edits
-and remaining evidence gaps. Keep editorial commentary out of manuscript prose.
-Compile modified LaTeX and inspect effects on linked claims and page budget.
+Return the requested artifact and brief reasons for material decisions, keeping
+editorial commentary outside paper prose. Use source and rendered checks only
+for applicable artifacts; report actual coverage.
 
-For actual rebuttal or revision letters, route to `$reviewer-response-rebuttal`
-when available. Respond to each concern using evidence and completed changes;
-distinguish remaining work from work already done. Preparation does not authorize
-posting a response or submitting a manuscript.
+For rebuttals or revision letters use $reviewer-response-rebuttal when available.
+Respond with evidence and completed changes, distinguishing remaining work.
+Preparation does not authorize posting, correspondence or submission.

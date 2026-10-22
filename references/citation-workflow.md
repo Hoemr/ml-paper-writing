@@ -34,6 +34,29 @@ Do not silently replace a preprint with a later paper: check that the cited
 result and author/version metadata still match. Preserve needed self-citations
 and apply the venue's anonymization rules rather than deleting relevant work.
 
+## Protect support during rewriting
+
+Distinguish writing exemplars, scientific support, and current venue policy.
+A well-written paper is not automatically evidence for this manuscript's claim;
+a published example is not a current author-instructions document.
+
+For a compound claim, identify which source supports which proposition and under
+what setting. Cite original methods, datasets, direct predecessors and necessary
+older work rather than replacing them to meet a recency or prestige quota.
+This paper's measured effects come from its own results, not an external
+mechanism paper.
+
+After splitting a sentence, shortening an abstract or moving a paragraph, check
+that citations still attach to the same claims. A joint citation after a
+semicolon can appear to support only the last sentence after a split. Reassign
+support only after checking the relevant source passages. Citation counts and
+unchanged keys alone do not establish unchanged attribution.
+
+For renumbering or source updates, synchronize actual affected body, caption,
+appendix and requested language versions. Identify an old review's reference by
+title/DOI rather than assuming its old number is current. Preserve citation
+manager fields and the manuscript's bibliography backend.
+
 ## Existing-reference audits
 
 For a requested read-only audit, use `$check-ref` if available and follow its

@@ -15,7 +15,7 @@ commented examples in the final manuscript. Preserve official style files.
 
 Use the template's engine, macros and bibliography backend. For a multi-file
 paper, run its normal build command (often `latexmk -pdf main.tex`); standalone
-method figures use the compilation/QA route in `$ml-method-figure`. Inspect the
+method figures use the built-in [figure workflow](../references/figure-workflow.md). Inspect the
 final PDF, not merely exit status. Remove unused examples before delivery.
 
 ## Available assets
