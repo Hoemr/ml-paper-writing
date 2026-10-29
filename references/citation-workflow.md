@@ -22,6 +22,14 @@ Use available web/API tools; no particular connector or Python dependency is
 required. Provider quotas and authentication change: consult current official
 API documentation if relevant instead of trusting stored rate-limit numbers.
 
+## Venue-specific citation presentation
+
+For STOC 2027, read the [venue guide](venues/stoc2027.md) before changing the
+bibliography style or author mentions. It covers linked references, avoiding
+"et al." in citation prose, recommended alpha/alphaurl labels for submission,
+and the separate ACM proceedings requirements. These presentation changes do
+not alter reference identity, author credit or claim support.
+
 ## Incomplete support
 
 If identity is uncertain, omit the invented citation and leave an explicit
@@ -59,8 +67,17 @@ manager fields and the manuscript's bibliography backend.
 
 ## Existing-reference audits
 
-For a requested read-only audit, use `$check-ref` if available and follow its
-coverage/report requirements. Do not expand ordinary prose editing into a full
-bibliography audit. Flag discovered identity or support issues proportionally.
+Use the built-in [reference-audit.md](reference-audit.md) for full-paper work
+and requested existing-reference audits. It owns inventory, complete coverage,
+identity verification, claim-support assessment and the audit report. Reuse
+evidence gathered when adding references; do not run duplicate audits.
+
+For full drafting/revision, audit the final manuscript's complete bibliography
+and every citation occurrence, including retained references. Verified corrections
+may be implemented under the writing task's existing edit scope, then recheck
+affected entries and occurrences. A stand-alone audit remains read-only.
+Local prose editing checks only new/changed/directly affected references and
+claim attachments; it does not trigger a full bibliography audit. An explicit
+user exclusion takes precedence and is recorded in coverage.
 
 Official API links and source provenance live in [sources.md](sources.md).

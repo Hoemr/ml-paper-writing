@@ -4,6 +4,11 @@ Use for drafting, rewriting or compressing an abstract and for title revision.
 Read the current body claims, decisive result sources and author choices before
 writing. The abstract is a self-contained argument, not a compressed contents page.
 
+Ordinary title/abstract improvement, including during full-paper work, stays in
+this route. Only an explicit request for paper-title-optimizer or its specialized
+retrieval/GEO capabilities opens [title-optimization.md](title-optimization.md).
+Do not import its query matrices, trend checks or visibility probes by default.
+
 ## Decide what the abstract must establish
 
 Identify the actual research type, task, central advance and strongest evidence.
@@ -67,9 +72,11 @@ Keep terminology stable rather than replacing it with attractive near-synonyms.
 
 ## Select boundaries without turning the abstract into a rebuttal
 
-Use [reviewer-guidelines.md](reviewer-guidelines.md#defensive-writing-examples)
-for editorial decisions. Distinguish a necessary result condition from a project
-status report. A matched-schedule memory claim needs that schedule condition.
+Apply the [shared writing standard](../SKILL.md#shared-writing-standard) first;
+use [reviewer-guidelines.md](reviewer-guidelines.md#defensive-writing-examples)
+for supporting examples. Establish the strongest supported contribution before
+limitations. Distinguish a necessary result condition from a project status
+report. A matched-schedule memory claim needs that schedule condition.
 It need not inventory every unfinished deployment study. If the abstract claims
 overall superiority, however, adverse accuracy results directly constrain it.
 
@@ -127,12 +134,13 @@ Possible abstract from these premises:
 > Training with a frozen vision encoder can repeatedly retain intermediate patch
 > features in GPU memory. PatchStore caches these features for reuse during
 > training. At a matched 20,000-update schedule on the evaluated encoder and
-> hardware, peak allocated GPU memory decreases from 24 GB to 18 GB. Accuracy
-> changes in opposite directions on the two evaluated tasks, with one training
-> run per setting.
+> hardware, peak allocated GPU memory decreases from 24 GB to 18 GB, enabling
+> feature reuse with a smaller peak memory footprint in this training setting.
 
-This example emphasizes a measured trade-off because those are its premises.
-It is not a template requiring a limitation sentence in every method abstract.
+This abstract centers the measured memory benefit and makes no equal-quality or
+speed claim. The task accuracy values and run count belong in the results; if
+the paper instead claims a quality/cost trade-off, include the quality evidence
+needed to assess that claim. Do not append a weakness inventory by default.
 A fully supported new mechanism deserves a clear mechanism explanation; missing
 mechanism facts must be queried rather than inferred from "cache."
 

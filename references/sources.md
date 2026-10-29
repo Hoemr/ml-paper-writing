@@ -48,9 +48,10 @@ Read its [skill](https://github.com/Michael-Jiahao-Zhang/game-the-llm-reviewer/b
 and [strategy cards](https://github.com/Michael-Jiahao-Zhang/game-the-llm-reviewer/blob/08ba6ff57487967f7090863efe21bbd95186637f/skills/game-the-llm-reviewer/references/strategies.md).
 Adapted principles: evidence-anchored local wording, contribution/effect framing,
 selective abstract reordering, explicit scope, and an equivalence check against
-the original scientific interpretation. The adaptation lives only in
-[reviewer-guidelines.md](reviewer-guidelines.md). Its linked research papers have
-not been independently verified here and are not imported as paper citations;
+the original scientific interpretation. The adaptation originally lived in
+[reviewer-guidelines.md](reviewer-guidelines.md); current narrative authority is
+the [shared writing standard](../SKILL.md#shared-writing-standard). Its linked
+research papers have not been independently verified here and are not imported as paper citations;
 no performance number or claim of universal reviewer preferences is retained.
 
 The same-day follow-up restored selected chapter patterns from the pre-refactor
@@ -58,6 +59,8 @@ personal skill and added original teaching examples. Defensive-writing examples
 adapt the inspected repository's lexical/scope/equivalence principles; they do
 not copy its examples or restore the old blanket prohibition on limitations.
 No new studies or claims of measured improvement for weaker agents were added.
+The later anti-defensive integration below supersedes the earlier narrative
+priority where they differ.
 
 ### Local figure authority
 
@@ -129,10 +132,32 @@ Also inspected these primary skill repositories:
 The expanded local guides are [related-work.md](related-work.md),
 [method-writing.md](method-writing.md),
 [experiments-results.md](experiments-results.md) and [conclusion.md](conclusion.md).
-They own section writing; citations, artifact mechanics, evidence tracking and
-defensive-wording rules remain in their existing owner files. This source review
-does not independently verify the repositories' linked research, quoted advice,
+They own section writing; citations, artifact mechanics and evidence tracking
+remain in their existing owner files. Narrative and defensive-wording authority
+now resides in the [shared writing standard](../SKILL.md#shared-writing-standard).
+This source review does not independently verify the repositories' linked research, quoted advice,
 conference policies or claims of writing success.
+
+## Anti-defensive writing integration — 2026-10-29 (UTC+8)
+
+Source: the user-supplied local `anti-defensive-writing-en/SKILL.md`, read in
+full. The inspected standalone source is identified by its content hash:
+SHA-256: `49705a92677d06b1be9f78be5be4f966b1d30c4ed72a3b97c86a973d06683b9b`.
+
+Its press-conference principle, strength-centered narrative, language against
+self-undermining, experiment responsibilities, section responsibilities,
+ordered treatment of unfavorable material and final checks are incorporated
+into [SKILL.md](../SKILL.md#shared-writing-standard). At the author's explicit
+request, that core standard takes precedence over the previous anti-defensive
+guidance and section-level examples throughout the writing lifecycle.
+
+The standalone source is retained unchanged; using ml-paper-writing does not
+require loading or installing it. Reviewer guidance now supplies subordinate
+examples and equivalence checks. Section-guide pointers and examples follow the
+core standard. Factual comparison conditions and evidence remain accurate;
+selection and reframing do not turn a scoped benefit into universal superiority.
+This is a local writing preference, not a verified claim about acceptance or
+reviewer behavior.
 
 ## Citation lookup documentation
 
@@ -142,3 +167,20 @@ conference policies or claims of writing success.
 [OpenAlex](https://docs.openalex.org/) are lookup tools; metadata hits do not
 establish claim support. Current venue policies are routed through
 [checklists.md](checklists.md).
+
+
+## Integrated local workflows (3.2.0)
+
+The local check-ref workflow supplied complete bibliography/occurrence inventories,
+independent identity verification, field comparisons, support assessment, report
+structure and scripts/check-ref/search_paper.py. These are consolidated in
+reference-audit.md and citation-workflow.md. Abstract-only uncertainty can now be
+resolved with primary full text; missing search evidence is not proof of fabrication.
+Provider setup prompts and tool-brand requirements are not scientific gates.
+
+The local paper-title-optimizer supplied the explicit-only title-optimization.md
+workflow, its supporting references/data and three JavaScript helpers. Its MIT
+license is retained at title-optimization/LICENSE. Historical trend/title statistics
+and effect-size statements are not freshly verified evidence or guaranteed outcomes.
+The parent writing rules take precedence over heuristic sentence templates.
+Neither integrated workflow requires its former standalone skill installation.

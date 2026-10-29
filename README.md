@@ -1,6 +1,6 @@
 # ml-paper-writing
 
-Version 3.1.0. Customized from [Orchestra Research's AI Research Skills library](https://github.com/Orchestra-Research/AI-Research-SKILLs), with writing-framework ideas adapted from [NC Manuscript Craft](https://github.com/i386345669/nc-manuscript-craft). Write complete supported drafts or revise mature manuscripts, with dedicated guides for abstracts, introductions, related work, methods, experiments and conclusions, plus substantive discussion and source-aware consistency checks. Retains ML-specific theory, algorithms, evaluation and method-figure capabilities. See NOTICE and references/sources.md for attribution.
+Version 3.4.0. Customized from [Orchestra Research's AI Research Skills library](https://github.com/Orchestra-Research/AI-Research-SKILLs), with writing-framework ideas adapted from [NC Manuscript Craft](https://github.com/i386345669/nc-manuscript-craft). Write complete supported drafts or revise mature manuscripts, with dedicated guides for abstracts, introductions, related work, methods, experiments and conclusions, plus substantive discussion and source-aware consistency checks. Retains ML-specific theory, algorithms, evaluation and method-figure capabilities. See NOTICE and references/sources.md for attribution.
 
 Draft and prepare ML / AI / Systems papers for **NeurIPS, ICML, ICLR, ACL, AAAI, COLM, OSDI, NSDI, ASPLOS, SOSP**, checking actual venue/year requirements when relevant. Use for research-repository drafting, abstracts, introductions, discussion, scientific revision, citations, method figures and format conversion. Deliverable readiness depends on the evidence and checks actually completed.
 
@@ -27,6 +27,7 @@ and report the install path.
 | Addition | Where | Purpose |
 |----------|-------|---------|
 | **Task and scope** | `SKILL.md` | Draft, revise, assess or prepare artifacts at partial or full scope. Complete drafting is explicit; an outline is intermediate when prose was requested. |
+| **Shared writing standard** | `SKILL.md` | Integrates anti-defensive-writing-en in the core: center the strongest supported value, avoid work-report chronology and self-undermining, and apply its narrative priorities across all sections. Takes precedence over older section-level advice. |
 | **Scoped delivery audit** | `SKILL.md` | Maintain actual coverage, lint applicable LaTeX, review meaning and report unresolved checks. Full drafts receive a gate table; small edits receive a concise verification note. |
 | **Abstract and introduction** | `references/abstract-and-title.md`, `references/introduction.md` | Choose decisive evidence and connect problem, prior capabilities, precise gap and supported advance. |
 | **Related work, method, experiments, conclusion** | Dedicated references in the route table | Full section-level writing guidance, worked examples and completion checks; read only the requested section. |
@@ -37,11 +38,31 @@ and report the install path.
 | **Built-in method figures** | `references/figure-workflow.md`, `references/method-figure/`, `scripts/method-figure/` | Architecture diagrams, method overviews, pipeline schematics, reference-led restyling, collision repair and figure audits, with standalone TikZ, PDF/PNG and six-stage QA. |
 | **Venue template snapshots** | `templates/` | LaTeX snapshots for the 10 supported venues, with per-venue setup notes in `templates/README.md`. |
 
+## Workflow activation
+
+- Local edits: verify new/affected references and their support.
+- Full drafts/revisions/full-skill runs: audit all bibliography entries and every
+  citation occurrence, including existing references. Report incomplete checks.
+- Reference-only audits: report findings without editing the manuscript or bibliography.
+- Title/abstract retrieval optimization: explicit request only. Normal title polish
+  and full-skill requests do not run GEO, query coverage, trend or visibility probes.
+
+Examples: “用 ml-paper-writing 全量修订” includes reference auditing;
+“只核查引用，不修改论文” runs a read-only audit;
+“启用标题检索优化 workflow” enables the optional title optimizer.
+
+The optional title optimizer now prioritizes semantically appropriate terms with
+verified recent citation growth: rolling 365-day comparison, fixed paper cohorts,
+base counts, absolute/relative growth and single-paper concentration. It offers
+a concise title and an evidence-backed keyword variant, without promising search
+gains. See references/title-optimization/citation-momentum.md. Publication trends
+remain separately labeled auxiliary evidence. No live keyword ranking is bundled.
+
 ## Repository layout
 
 ```
 ml-paper-writing/
-├── SKILL.md                    ← modes, workflow, gates, delivery audit
+├── SKILL.md                    ← shared writing standard, modes, workflow, gates
 ├── references/
 │   ├── writing-guide.md        ← complete drafting, research types and sections
 │   ├── abstract-and-title.md   ← selection, argument, compression and titles
@@ -53,15 +74,20 @@ ml-paper-writing/
 │   ├── evidence-workflow.md    ← sources, dependencies and synchronization
 │   ├── style-conventions.md    ← notation, cross-refs, tables, prose, punctuation
 │   ├── algorithms.md           ← pseudocode recipes and worked examples
-│   ├── citation-workflow.md    ← search / verify / add new citations
+│   ├── citation-workflow.md    ← unified citation verification and audit routing
+│   ├── reference-audit.md      ← complete identity and occurrence-level support audit
+│   ├── title-optimization.md   ← opt-in retrieval optimization workflow
+│   ├── title-optimization/     ← supporting guidance, snapshots and license
 │   ├── figure-workflow.md      ← built-in narrative, TikZ construction and QA
 │   ├── method-figure/          ← drawing guides, TikZ templates and reference PNG
-│   ├── reviewer-guidelines.md  ← defensive writing, equivalence check
+│   ├── reviewer-guidelines.md  ← supporting wording examples, equivalence check
 │   ├── checklists.md           ← submission rules; verify exact venue and year
 │   ├── systems-conferences.md  ← OSDI / NSDI / ASPLOS / SOSP specifics
 │   └── sources.md              ← guidance provenance and external limits
 ├── scripts/
 │   ├── lint_style.py           ← mechanical delivery-audit lint (see below)
+│   ├── check-ref/              ← literature lookup helper and private local configuration
+│   ├── paper-title-optimizer/  ← optional trend, title-statistics and visibility helpers
 │   ├── audit_pseudocode.py     ← mechanical audit for a pseudocode block
 │   └── method-figure/          ← QA runner, lint, instrumentation, geometry/type checks
 ├── templates/                  ← venue template snapshots + setup notes
@@ -99,5 +125,6 @@ MIT (same as upstream). See [LICENSE](LICENSE).
 
 - [Orchestra Research's AI Research Skills library](https://github.com/Orchestra-Research/AI-Research-SKILLs) — upstream
 - [Built-in method-figure module](references/figure-workflow.md) — standalone TikZ source, PDF/PNG, design rules and mechanical/visual QA; no separate figure skill required
-- `check-ref` — sibling skill for read-only audits of existing references
+- [Built-in reference audit](references/reference-audit.md) — full coverage during full-paper work; read-only when requested as an audit
+- [Optional title retrieval optimization](references/title-optimization.md) — explicit opt-in only, excluded even from generic full-skill runs
 - [Hoemr/my_paper_hub](https://github.com/Hoemr/my_paper_hub) — personal reference paper hub

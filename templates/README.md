@@ -34,6 +34,15 @@ Check what the directory actually contains; some assets may depend on class or
 style files installed elsewhere. Do not label a community asset an official
 current template without checking its provenance.
 
+## STOC 2027
+
+Use the [STOC 2027 guide](../references/venues/stoc2027.md) before selecting a
+format. The initial-submission layout and accepted ACM proceedings template
+are different stages. There is no bundled STOC template here; a generic article
+configured to the CFP dimensions is an implementation option, while the
+proceedings use the current official acmart package. Verify provenance and do
+not copy a manuscript-specific preamble as a purported official template.
+
 ## Conversion
 
 Start from the complete target template in a new output directory unless an

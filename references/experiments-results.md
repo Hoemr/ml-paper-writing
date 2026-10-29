@@ -6,6 +6,12 @@ tasks. In a writing request, identify important missing evidence without
 pretending to have produced it or requiring a new experiment before editing
 independent supported results.
 
+Apply the [shared writing standard](../SKILL.md#shared-writing-standard) while
+selecting and organizing experiments. Center the strongest supported value;
+each main-text experiment should establish the claimed outcome, test the key
+mechanism, show value in the target scenario or distinguish an alternative
+explanation. Move or condense material that has no role in that argument.
+
 ## Recover the evaluation and each comparison's purpose
 
 Read the main claims, current experimental text, source tables/plots and the
@@ -28,6 +34,54 @@ Use only rows the paper needs and has evidence for. A method paper does not
 automatically require every common ablation, benchmark, robustness experiment
 or visualization. An empirical analysis may put a diagnostic comparison first;
 a systems paper may center an end-to-end workload and its bottleneck.
+
+## Form research questions from the central claims
+
+When explicit research questions (RQs) are requested or help orient the reader,
+derive them from the central claims in the abstract and introduction, then
+check them against the available experiments. Do not require an RQ list for
+every paper or generate questions by renaming experiment headings.
+
+- **Map claim to question to evidence.** Identify the proposition each RQ
+  examines and the comparison or analysis that can answer it. Several probes,
+  ablations and benchmarks may jointly answer one RQ. Keep this mapping as a
+  writing aid; include it in the manuscript only when useful to readers.
+  If evidence is missing, flag the gap and distinguish an answerable narrower
+  question from an unsupported claim. Do not silently rewrite the central claim
+  or imply that the missing experiment was performed.
+- **Build an argument across questions.** Choose the number and order from the
+  paper's contribution and evidence. Mechanism, practical outcome and incremental
+  contribution can form one useful progression; they are not a mandatory trio.
+  Supporting diagnostics need not become separate RQs. Empirical findings should
+  be able to support, qualify or challenge the claim each question examines.
+- **Retain the distinction that identifies the contribution.** Keep essential
+  terms for the proposed mechanism, information boundary, deployment condition
+  or comparator. Ask, for example, what an intervention adds beyond matched
+  further optimization when that control distinguishes its contribution.
+  Avoid generic questions such as whether the method is "effective" when the
+  contribution concerns a more specific change in behavior or resources.
+- **Keep one central inquiry per RQ.** Prefer a short, direct question. Move
+  model and dataset inventories, feedback sources, metrics, protocol details
+  and secondary variation questions into setup or subsection introductions,
+  unless one is essential to defining the claim or comparison. Do not remove a
+  defining condition merely to shorten the wording. An RQ should not read like
+  a complete experimental plan.
+- **Allow the evidence to determine the answer.** "Can X improve Y?" can test an
+  improvement claim; "How does X affect Y?" or "What does X add beyond Z?" can
+  accommodate mixed effects. Avoid wording that presupposes universal gains,
+  causality, generalization or sustained improvement beyond what the design can
+  examine. Do not present questions distilled after experiments as preregistered
+  or originally hypothesized without records.
+- **Present the questions compactly.** A brief lead-in such as "We organize our
+  experiments around the following research questions:" is sufficient. For a
+  short set, an inline paragraph with bold RQ labels and italic question text
+  can provide a compact reading hierarchy. Use a list when it improves scanning,
+  and follow the author's preference and venue style. Neither three questions
+  nor a particular layout is a universal requirement.
+
+Before finalizing, check that the RQs cover the central empirical claims, each
+has an identifiable answer in the results, and their wording preserves the
+paper's distinctive contribution without promising more than the evidence.
 
 ## Write setup so the results are interpretable
 
@@ -174,8 +228,9 @@ extended diagnostics and supporting derivations.
 
 Move detail without hiding a result that changes the central claim. Preserve
 unique definitions and point to the destination. Use
-[style-conventions.md](style-conventions.md#figures) for caption semantics and
-[reviewer-guidelines.md](reviewer-guidelines.md) for repeated defensive prose.
+[style-conventions.md](style-conventions.md#figures) for caption semantics, the
+[shared writing standard](../SKILL.md#shared-writing-standard) for narrative
+decisions, and [reviewer-guidelines.md](reviewer-guidelines.md) for examples.
 Do not append every unmeasured property to every result paragraph.
 
 ## Synthetic result rewrite
@@ -191,18 +246,20 @@ Weak:
 > and accelerates training.
 
 More informative:
-> At the matched training schedule, the full method has higher mean accuracy
-> on A and lower mean accuracy on B than the replacement control. The comparison
-> therefore gives mixed observed accuracy changes under this protocol. Peak
-> allocated GPU memory decreases from 24 GB to 20 GB.
+> At the matched training schedule, peak allocated GPU memory decreases from
+> 24 GB to 20 GB. Mean accuracy changes by +0.9 percentage points on A and -0.5
+> on B relative to the replacement control.
 
 Describe uncertainty with its definition in the actual table/caption or nearby
-text. The memory observation needs no invented speed claim and the accuracy
-pattern needs no invented causal explanation.
+text. The narration centers the measured resource benefit and gives the quality
+comparison without a judgment on the whole method. The memory observation needs
+no invented speed claim and the accuracy pattern needs no invented explanation.
 
 ## Completion checks
 
 - Each important experiment serves a real paper claim or question.
+- Explicit RQs map central claims to available evidence, remain concise, and
+  admit the observed outcomes without overstating the experimental scope.
 - Protocol, selection, baseline source and comparison mismatches are explicit.
 - Numbers, units, aggregation and uncertainty agree with sources.
 - Text explains the informative pattern rather than reciting the table.

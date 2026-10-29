@@ -13,6 +13,15 @@ rules.
 
 See LICENSE for the applicable license and original copyright notice.
 
+Integrated local workflows
+==========================
+
+Reference-audit guidance and scripts/check-ref/search_paper.py were consolidated
+from the user's local check-ref skill. Title retrieval optimization guidance,
+historical data and scripts/paper-title-optimizer were imported from the local
+paper-title-optimizer skill. Its license and copyright notice are retained in
+references/title-optimization/LICENSE. See references/sources.md for scope.
+
 
 NC Manuscript Craft adaptation
 ==============================

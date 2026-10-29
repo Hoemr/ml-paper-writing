@@ -5,6 +5,10 @@ possible, which precise step remains and how this paper advances it. It does
 not need a grand field history, a manufactured failure of prior work or a fixed
 number of paragraphs.
 
+Apply the [shared writing standard](../SKILL.md#shared-writing-standard):
+establish the contribution before limitations, make the demonstrated advantage
+explicit and use the strongest evidence to choose the comparison frame.
+
 ## Establish the argument before polishing sentences
 
 Read the research question, actual mechanism/findings, closest work and author's

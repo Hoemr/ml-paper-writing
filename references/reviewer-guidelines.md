@@ -1,8 +1,10 @@
 # Scientific review, direct expression and author voice
 
-This file owns defensive-writing decisions and the equivalence review.
-Use it after establishing the argument and evidence, not as a replacement for
-section development. Abstract/introduction structure lives in their dedicated
+The [shared writing standard](../SKILL.md#shared-writing-standard) owns narrative
+and anti-defensive decisions across all sections and takes precedence over this
+file. Apply it during drafting, not only after the argument is written. This
+file supplies supporting editorial examples, scientific review and the
+equivalence check. Abstract/introduction structure lives in their dedicated
 guides; punctuation and artifact rules live in style-conventions.
 
 ## Scientific assessment first
@@ -21,6 +23,11 @@ edits. For systems claims also use [systems-conferences.md](systems-conferences.
 ## Defensive writing examples
 
 ### Identify the function before editing
+
+Apply the core standard's selection and reframing order before deciding that
+an unfavorable observation belongs in the narrative. The examples below help
+preserve the meaning of material that is actually needed; they do not require
+volunteering weaknesses or assigning every result equal prominence.
 
 Defensive rhetoric anticipates an imagined objection instead of explaining the
 research: repeated "we stress," unsupported reassurance, self-dismissal,
@@ -48,7 +55,8 @@ information and improve its expression.
 | QUERY | The evidence or intended meaning is insufficient; identify the specific author question. |
 
 These are editorial decisions, not mandatory labels to print for every sentence.
-A short revision needs only the material reasons. Do not resurrect rhetoric
+A short revision needs only the material reasons. This table is not a priority
+order; the core standard supplies that order. Do not resurrect rhetoric
 the author explicitly removed, even in another section.
 
 ### Distinguish selecting claims from suppressing evidence
@@ -59,7 +67,8 @@ budget and measurement boundary. If it also claims accuracy superiority, mixed
 accuracy findings constrain that claim there. If quality/cost is the central
 trade-off, describing cost alone can mislead even without the word "accuracy."
 
-Put a boundary where the reader needs it. A precise definition at the comparison
+Establish the contribution before introducing limitations. Put a necessary
+boundary where the reader needs it. A precise definition at the comparison
 entry can replace repeated disclaimers in later paragraphs. Detailed execution
 records can move to methods or project notes. A restriction that changes the
 central inference cannot disappear into an obscure appendix solely to make the
@@ -86,20 +95,20 @@ a manuscript. Each rewrite requires matching evidence.
 | --- | --- | --- |
 | Unsupported reassurance | "We stress that X is not merely a heuristic and is highly reliable." | CUT the reassurance. Describe the actual construction or measured property; do not invent a theorem. |
 | Information boundary | "It should be emphasized that we do not feed future context to the deployed policy." | REFRAME: "The deployed policy uses past context. The training scorer also uses future context." Retain both roles if verified. |
-| Self-dismissal | "Unfortunately, we only evaluated X on these tasks." | REFRAME: "The evaluation covers [named task scope]." Keep untested scope explicit where extrapolation is discussed. |
+| Self-dismissal | "Unfortunately, we only evaluated X on these tasks." | First ask whether an untested-scope discussion serves the claim. Where scope is needed, REFRAME: "The evaluation covers [named task scope]." Do not add an inventory of untested settings. |
 | Genuine uncertainty | "The preliminary results suggest that X may help." | KEEP uncertainty unless evidence justifies a change. "X demonstrably works" is not a style edit. |
-| Scalar versus gradient property | "The correction has zero trajectory mean, but we do not claim policy-gradient preservation." | KEEP the distinction when readers could infer preservation. State the proved identity and the unresolved gradient property directly. |
+| Scalar versus gradient property | "The correction has zero trajectory mean, but we do not claim policy-gradient preservation." | REFRAME around the proved trajectory-mean identity and its scope. Discuss the gradient distinction where a claim actually depends on it; do not append the negation to every summary. |
 | Different efficiency metrics | "We did not measure long-run training speed; this profile measures peak memory." | REFRAME as "The profile measures peak memory." Retain the speed gap where speed or overall efficiency is assessed; never rewrite as "X accelerates training." |
 | Unresolved comparison | "X has a higher point estimate, but available uncertainty does not establish superiority." | KEEP the unresolved comparison. Neither "X outperforms" nor "the methods are equivalent" is supported. |
-| Mixed findings | "X is effective, although two tasks decline." | Scientific correction may be needed: report the observed directions and scope, then explain the supported contribution. Do not hide declines by calling them defensive. |
+| Mixed findings | "X is effective, although two tasks decline." | Narrow the claim to the supported benefit or trade-off and organize around that contribution. Report task results where needed to assess it; do not turn a local comparison into a verdict on the entire method. |
 | Internal editing diary | "We fixed the denominator after several audits." | State the current denominator in a normal final manuscript. Preserve the history in a correction notice or revision letter when required or scientifically material. |
 | Repeated figure disclaimer | Every caption says "This is not independent validation." | Define the actual repeated-run, shared-input or same-checkpoint design at appropriate entry points; retain that identity in captions needed for standalone interpretation. |
 
 Unsupported "first," "significant," "optimal" and "state of the art" need an
 accurate statement or evidence, not a different flattering adjective.
-Negative results, failure analyses and correction reports can legitimately
-foreground limitations; contribution-oriented writing does not require a
-positive outcome.
+When a negative finding, failure analysis or correction is itself the central
+contribution, foreground the insight it establishes. This does not require
+rewriting an unrelated method paper as a critique of its own shortcomings.
 
 ## Natural expression without mechanical style recipes
 

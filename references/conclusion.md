@@ -5,6 +5,10 @@ introduction promises, central method/result statements and any updated
 discussion or limitations first. The conclusion is the paper's last scientific
 claim, so it must use the current evidence rather than an older stronger story.
 
+Apply the [shared writing standard](../SKILL.md#shared-writing-standard).
+Reinforce the strongest supported takeaway; do not introduce a fresh
+self-negation, unrelated weakness or expanded limitations in the ending.
+
 ## Decide what the reader should retain
 
 Identify the answer to the original question, the idea or evidence that makes
@@ -66,14 +70,16 @@ Weak:
 > robust improvements and open a new paradigm for efficient learning.
 
 Possible conclusion:
-> The matched-retention comparison yields accuracy mean changes in different
-> directions across the three evaluated tasks. It does not establish an overall
-> advantage for score-ranked selection. These results make the retention rule,
+> At a matched token budget, score-ranked selection yields mean accuracy changes
+> of +0.8, -0.6 and +0.1 percentage points across the three tasks. These results
+> make the retention rule,
 > alongside the retained count, an explicit comparison factor when assessing
 > token-selection methods.
 
-The negative qualification matters because it is the result being concluded.
-Do not reuse this ending for a method with a well-supported positive finding.
+This ending states the task-level observations and closes on the comparison
+insight. It does not turn them into a verdict on the whole method. It fits a
+paper whose contribution is that empirical distinction; do not reuse it for a
+method with a different, well-supported positive finding.
 
 For a different synthetic paper that implements two fixed linear projections
 and checks numerical agreement, an ending can instead explain how those

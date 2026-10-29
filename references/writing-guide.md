@@ -4,6 +4,10 @@ Contents: evidence and research types; whole-paper workflow; rewriting;
 abstract/introduction routes; related work; method and theory; experiments;
 discussion and limitations; conclusion.
 
+Apply the [shared writing standard](../SKILL.md#shared-writing-standard) while
+developing every section. It owns narrative priorities and anti-defensive
+decisions; the local section routes below implement that standard.
+
 ## Evidence before prose
 
 Read the current manuscript or available method, results, figures and author
@@ -69,8 +73,10 @@ Move unique definitions before deleting duplicated supplementary prose.
 Mark unfinished draft passages clearly or place queries in an author note.
 Unknown disclosures, permissions and access states stay unknown.
 
-Check title, abstract, introduction promises, results, discussion and conclusion
-against the same main claim. Do not promote an exploratory variant into the
+When the evidence cannot support the original story, restructure around its
+strongest supported contribution within the requested scope. Check title,
+abstract, introduction promises, results, discussion and conclusion against
+that same main claim. Do not promote an exploratory variant into the
 final method because its result is more favorable. Deliver the supported draft
 and exact gaps, distinguishing content completion from file generation, rendering
 and submission preparation.
@@ -169,17 +175,21 @@ experimental strength or hypothesis history.
 
 ### Make limitations precise and proportionate
 
-Explain what information or design coverage is missing and which inference it
-limits. When useful, identify a targeted test that distinguishes plausible
-explanations. Do not guess the direction of bias, guarantee that more data will
-improve performance, or append a shopping list of experiments to every paragraph.
+First apply the core standard's selection and reframing order. Discuss missing
+information or design coverage when it limits the selected inference or belongs
+in a required limitations section. When useful, identify a targeted test that
+distinguishes plausible explanations. Do not volunteer unrelated gaps, guess
+the direction of bias, guarantee that more data will improve performance, or
+append a shopping list of experiments to every paragraph.
 
 Few training runs limit the precision of estimated run-to-run variability; one
 run cannot estimate that variability. Missing equal-quality curves leave that
 efficiency claim unresolved. These are different limitations.
 Retain boundaries near affected claims and follow any required venue limitations
 section. A caveat is not resolved merely because it has been admitted.
-Defensive-writing decisions have one owner:
+Defensive-writing decisions are governed by the
+[shared writing standard](../SKILL.md#shared-writing-standard); supporting
+examples are in
 [reviewer-guidelines.md](reviewer-guidelines.md#defensive-writing-examples).
 
 ## Conclusion

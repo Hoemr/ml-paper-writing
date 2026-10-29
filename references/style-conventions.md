@@ -170,7 +170,8 @@ gate for method schematics.
   Preserve conditions, adverse evidence, and citation attachment.
 
 - For chapter patterns and rewriting, use [writing-guide.md](writing-guide.md).
-  Defensive-writing decisions and examples live only in
+  The [shared writing standard](../SKILL.md#shared-writing-standard) governs
+  anti-defensive decisions throughout the paper; supporting examples live in
   [reviewer-guidelines.md](reviewer-guidelines.md#defensive-writing-examples).
 - Keep author workflow commentary out of paper prose. Retain provenance,
   preregistration, caveats and version distinctions when scientifically material;
