@@ -6,7 +6,7 @@ tasks. In a writing request, identify important missing evidence without
 pretending to have produced it or requiring a new experiment before editing
 independent supported results.
 
-Apply the [shared writing standard](../SKILL.md#shared-writing-standard) while
+Apply the [shared writing standard](reviewer-guidelines.md#shared-writing-standard) while
 selecting and organizing experiments. Center the strongest supported value;
 each main-text experiment should establish the claimed outcome, test the key
 mechanism, show value in the target scenario or distinguish an alternative
@@ -34,6 +34,13 @@ Use only rows the paper needs and has evidence for. A method paper does not
 automatically require every common ablation, benchmark, robustness experiment
 or visualization. An empirical analysis may put a diagnostic comparison first;
 a systems paper may center an end-to-end workload and its bottleneck.
+
+Use the same claim/evidence map to select headline, supporting and table-only
+results. Claim → method → experiment/control links may be many-to-many. A
+headline number earns space because it establishes the central advance, not
+because it is the largest improvement. Check wording using
+[claim-calibration.md](claim-calibration.md) before interpreting a diagnostic
+as a mechanism or a controlled comparison as a general causal guarantee.
 
 ## Form research questions from the central claims
 
@@ -229,7 +236,7 @@ extended diagnostics and supporting derivations.
 Move detail without hiding a result that changes the central claim. Preserve
 unique definitions and point to the destination. Use
 [style-conventions.md](style-conventions.md#figures) for caption semantics, the
-[shared writing standard](../SKILL.md#shared-writing-standard) for narrative
+[shared writing standard](reviewer-guidelines.md#shared-writing-standard) for narrative
 decisions, and [reviewer-guidelines.md](reviewer-guidelines.md) for examples.
 Do not append every unmeasured property to every result paragraph.
 

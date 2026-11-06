@@ -4,9 +4,34 @@ Contents: evidence and research types; whole-paper workflow; rewriting;
 abstract/introduction routes; related work; method and theory; experiments;
 discussion and limitations; conclusion.
 
-Apply the [shared writing standard](../SKILL.md#shared-writing-standard) while
+Apply the [shared writing standard](reviewer-guidelines.md#shared-writing-standard) while
 developing every section. It owns narrative priorities and anti-defensive
 decisions; the local section routes below implement that standard.
+
+For full drafting or substantial restructuring, use
+[narrative-design.md](narrative-design.md) before section drafting. It owns the
+argument-design sequence; [research-routes.md](research-routes.md) extends the
+research types below with capability, scaling, re-examination, mechanism and
+measurement routes. Local edits use only the relevant part.
+
+## Workflow activation
+
+Treat this skill as a collection of writing workflows. Full scope means complete
+coverage of the requested manuscript, not activation of every optional workflow.
+Honor an explicit user exclusion and record the excluded checks.
+
+| Request | Citation coverage | Title/abstract route |
+| --- | --- | --- |
+| Local edit, section rewrite, ordinary title/abstract polish | New, changed and directly affected references/claim attachments | Normal abstract-and-title guidance only |
+| Full draft, whole-manuscript revision, or full skill run | Audit all bibliography entries and every citation occurrence in the final manuscript, without sampling | Normal writing; retrieval optimization stays off |
+| Read-only reference audit, including “check-ref” | All entries and occurrences unless the user explicitly limits scope; report only | No title rewrite |
+| Explicit “paper-title-optimizer”, GEO/AI-search visibility, query coverage, trend terminology, recent citation-growth keyword recommendations or acronym-collision request | Verify evidence needed for the requested optimization; not automatically a full reference audit | Load the optional title-optimization route, limited to requested capabilities |
+
+Do not load the title-optimization module, its supporting references or probes
+for ordinary writing or a generic “full/all” request. It requires specific opt-in.
+Full-paper audits use the built-in reference-audit module; no external check-ref
+skill is required. Missing manuscript/bibliography material makes coverage
+incomplete, not passed. Continue independent work and identify the missing input.
 
 ## Evidence before prose
 
@@ -188,7 +213,7 @@ efficiency claim unresolved. These are different limitations.
 Retain boundaries near affected claims and follow any required venue limitations
 section. A caveat is not resolved merely because it has been admitted.
 Defensive-writing decisions are governed by the
-[shared writing standard](../SKILL.md#shared-writing-standard); supporting
+[shared writing standard](reviewer-guidelines.md#shared-writing-standard); supporting
 examples are in
 [reviewer-guidelines.md](reviewer-guidelines.md#defensive-writing-examples).
 

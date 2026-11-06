@@ -5,7 +5,7 @@ introduction promises, central method/result statements and any updated
 discussion or limitations first. The conclusion is the paper's last scientific
 claim, so it must use the current evidence rather than an older stronger story.
 
-Apply the [shared writing standard](../SKILL.md#shared-writing-standard).
+Apply the [shared writing standard](reviewer-guidelines.md#shared-writing-standard).
 Reinforce the strongest supported takeaway; do not introduce a fresh
 self-negation, unrelated weakness or expanded limitations in the ending.
 

@@ -120,7 +120,10 @@ if [ ! -f "$BUILD/$PNG" ] && command -v pdftoppm >/dev/null 2>&1; then
   pdftoppm -png -r 200 -singlefile "$BUILD/$BASE.qa.pdf" "$BUILD/${BASE}.qa" >/dev/null 2>&1 \
     && echo "  $BUILD/${BASE}.qa.png"
 fi
-[ -f "$BUILD/$PNG" ] || echo "  no PNG renderer (qlmanage/sips/pdftoppm) — inspect the PDF directly"
+if [ ! -f "$BUILD/$PNG" ]; then
+  echo "FAIL: PNG render missing (qlmanage/sips/pdftoppm); visual review cannot run."
+  HARD=1
+fi
 hr
 
 if [ "$HARD" -eq 0 ]; then
@@ -133,7 +136,7 @@ This is a floor, not a ceiling. The checkers cannot see:
   - whether the composition has a focal point
   - anywhere a line crosses a label (paths are not instrumented)
 Look at the rendered PNG before delivering, and read
-references/review-checklist.md.
+references/method-figure/review-checklist.md.
 EOF
 else
   echo "HARD FAILURES above. Fix them, then re-run."

@@ -50,7 +50,7 @@ Adapted principles: evidence-anchored local wording, contribution/effect framing
 selective abstract reordering, explicit scope, and an equivalence check against
 the original scientific interpretation. The adaptation originally lived in
 [reviewer-guidelines.md](reviewer-guidelines.md); current narrative authority is
-the [shared writing standard](../SKILL.md#shared-writing-standard). Its linked
+the [shared writing standard](reviewer-guidelines.md#shared-writing-standard). Its linked
 research papers have not been independently verified here and are not imported as paper citations;
 no performance number or claim of universal reviewer preferences is retained.
 
@@ -134,7 +134,7 @@ The expanded local guides are [related-work.md](related-work.md),
 [experiments-results.md](experiments-results.md) and [conclusion.md](conclusion.md).
 They own section writing; citations, artifact mechanics and evidence tracking
 remain in their existing owner files. Narrative and defensive-wording authority
-now resides in the [shared writing standard](../SKILL.md#shared-writing-standard).
+now resides in the [shared writing standard](reviewer-guidelines.md#shared-writing-standard).
 This source review does not independently verify the repositories' linked research, quoted advice,
 conference policies or claims of writing success.
 
@@ -147,7 +147,7 @@ SHA-256: `49705a92677d06b1be9f78be5be4f966b1d30c4ed72a3b97c86a973d06683b9b`.
 Its press-conference principle, strength-centered narrative, language against
 self-undermining, experiment responsibilities, section responsibilities,
 ordered treatment of unfavorable material and final checks are incorporated
-into [SKILL.md](../SKILL.md#shared-writing-standard). At the author's explicit
+into [the shared writing standard](reviewer-guidelines.md#shared-writing-standard). At the author's explicit
 request, that core standard takes precedence over the previous anti-defensive
 guidance and section-level examples throughout the writing lifecycle.
 
@@ -158,6 +158,25 @@ core standard. Factual comparison conditions and evidence remain accurate;
 selection and reframing do not turn a scoped benefit into universal superiority.
 This is a local writing preference, not a verified claim about acceptance or
 reviewer behavior.
+
+## Source refresh and ownership — 2026-10-31 (UTC+8)
+
+Reconfirmed the two canonical GitHub repositories above against their live
+repository identities. Reread FigGenie’s drawing plan at
+`c136a6aeefc6f6fe11fc615a5199cca57be3322a` and Game the LLM Reviewer’s
+entrypoint and strategy cards at `efde3b652553a238ebe018df593d3d60cceb1a5f`.
+The reusable lessons remain content-derived composition, aligned comparisons,
+print-size inspection, evidence-anchored expression and scientific equivalence.
+No reviewer-score claims, corpus thresholds or external rendering pipeline
+are adopted.
+
+The entrypoint now routes the complete shared writing standard to
+[reviewer-guidelines.md](reviewer-guidelines.md#shared-writing-standard); scope
+activation lives in writing-guide and the detailed delivery audit in
+evidence-workflow. This relocation preserves the 2026-10-29 narrative priority.
+The built-in figure module remains the sole active rules and QA owner. The
+former standalone skill was read from `.cc-switch/skills/ml-method-figure`;
+its absent `.codex/skills` path is not reintroduced as a runtime dependency.
 
 ## Citation lookup documentation
 
@@ -184,3 +203,15 @@ license is retained at title-optimization/LICENSE. Historical trend/title statis
 and effect-size statements are not freshly verified evidence or guaranteed outcomes.
 The parent writing rules take precedence over heuristic sentence templates.
 Neither integrated workflow requires its former standalone skill installation.
+
+
+## Best-Paper argument design and optional corpus resources (3.5.0)
+
+Adapted from gulucaptain/Best-Paper-Writing-Skill at b9eff99, 2026-10-31.
+See [bestpaper/README.md](bestpaper/README.md) for source, licenses, copied
+resources and local changes. Narrative design and type routes are default
+guidance within writing scope; corpus statistics/exemplars are optional aids.
+The upstream 55-paper descriptive corpus (five other papers held out) is not
+an independently revalidated predictor of paper quality or acceptance.
+We do not import universal style-error bans, mandatory page-one figures,
+automatic figure placeholders, or a separate author-report requirement.

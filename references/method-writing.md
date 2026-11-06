@@ -41,6 +41,13 @@ available information independently of the architecture so that the problem
 does not silently assume the proposed answer. Background should include only
 definitions or results needed later.
 
+A useful local progression is **need → mechanism → justified property**:
+identify the requirement, explain the actual operation, and state the property
+its construction or evidence establishes. Relate stages through what one leaves
+for the next; do not invent a failure or component dependency to manufacture a
+story. Map promised properties through the existing evidence record and
+[claim-calibration.md](claim-calibration.md).
+
 ## Develop the method in dependency order
 
 Introduce an operation after the objects it consumes are known. For each

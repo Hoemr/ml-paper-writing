@@ -5,7 +5,7 @@ possible, which precise step remains and how this paper advances it. It does
 not need a grand field history, a manufactured failure of prior work or a fixed
 number of paragraphs.
 
-Apply the [shared writing standard](../SKILL.md#shared-writing-standard):
+Apply the [shared writing standard](reviewer-guidelines.md#shared-writing-standard):
 establish the contribution before limitations, make the demonstrated advantage
 explicit and use the strongest evidence to choose the comparison frame.
 
@@ -25,6 +25,15 @@ If the gap is broader than the evaluated advance, narrow the gap. If the
 contribution is a controlled distinction, a counterexample or a resource, let
 that be the contribution. Do not relabel it as a new algorithm or pretend prior
 work universally fails.
+
+Use [research-routes.md](research-routes.md) to choose the progression appropriate
+to the paper. Establish the actual unresolved question or trade-off before the
+idea resolves it (tension-before-idea); explain the closest work's concrete
+capability before the remaining gap (credit-then-gap). Credit is factual
+attribution, not ceremonial praise. Neither move requires an invented failure.
+State supported observations directly; label untested explanations or conjectures
+accurately. One paragraph should advance one central point, with evidence and
+relations around it; this is not a one-sentence/one-fact constraint.
 
 ## Organize by reader needs
 

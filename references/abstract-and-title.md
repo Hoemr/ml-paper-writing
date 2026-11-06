@@ -72,7 +72,7 @@ Keep terminology stable rather than replacing it with attractive near-synonyms.
 
 ## Select boundaries without turning the abstract into a rebuttal
 
-Apply the [shared writing standard](../SKILL.md#shared-writing-standard) first;
+Apply the [shared writing standard](reviewer-guidelines.md#shared-writing-standard) first;
 use [reviewer-guidelines.md](reviewer-guidelines.md#defensive-writing-examples)
 for supporting examples. Establish the strongest supported contribution before
 limitations. Distinguish a necessary result condition from a project status
@@ -150,6 +150,11 @@ Choose the object and actual advance first. A method title can state the task
 and distinctive operation; a theory title its result and setting; an analysis
 title the finding; a benchmark title what capability it measures. The method
 brand can support identification without replacing that information.
+
+For a learning-theory or theoretical-computer-science paper, read
+[theory-title-guidance.md](theory-title-guidance.md). It gives a dated COLT/STOC
+title-corpus reference, theory-specific claim gates and compact structures.
+Venue-matched evidence takes precedence over generic title-length heuristics.
 
 Ask: what work would a reader assume was completed from this title alone?
 Remove implied causal proof, comprehensive coverage, universal superiority or

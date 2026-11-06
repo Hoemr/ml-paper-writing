@@ -1,6 +1,6 @@
 # ml-paper-writing
 
-Version 3.4.0. Customized from [Orchestra Research's AI Research Skills library](https://github.com/Orchestra-Research/AI-Research-SKILLs), with writing-framework ideas adapted from [NC Manuscript Craft](https://github.com/i386345669/nc-manuscript-craft). Write complete supported drafts or revise mature manuscripts, with dedicated guides for abstracts, introductions, related work, methods, experiments and conclusions, plus substantive discussion and source-aware consistency checks. Retains ML-specific theory, algorithms, evaluation and method-figure capabilities. See NOTICE and references/sources.md for attribution.
+Version 3.6.0. Customized from [Orchestra Research's AI Research Skills library](https://github.com/Orchestra-Research/AI-Research-SKILLs), with writing-framework ideas adapted from [NC Manuscript Craft](https://github.com/i386345669/nc-manuscript-craft). Write complete supported drafts or revise mature manuscripts, with dedicated guides for abstracts, introductions, related work, methods, experiments and conclusions, plus substantive discussion and source-aware consistency checks. Retains ML-specific theory, algorithms, evaluation and method-figure capabilities. See NOTICE and references/sources.md for attribution.
 
 Draft and prepare ML / AI / Systems papers for **NeurIPS, ICML, ICLR, ACL, AAAI, COLM, OSDI, NSDI, ASPLOS, SOSP**, checking actual venue/year requirements when relevant. Use for research-repository drafting, abstracts, introductions, discussion, scientific revision, citations, method figures and format conversion. Deliverable readiness depends on the evidence and checks actually completed.
 
@@ -58,6 +58,20 @@ a concise title and an evidence-backed keyword variant, without promising search
 gains. See references/title-optimization/citation-momentum.md. Publication trends
 remain separately labeled auxiliary evidence. No live keyword ranking is bundled.
 
+## Integrated argument design
+
+Full drafting and substantive revision now use an integrated argument-design
+sequence, expanded research-type routes and evidence-specific claim calibration.
+The existing evidence map links claims, methods/proofs and empirical evidence;
+figure roles reuse it. These writing principles run by default within scope.
+
+Best-Paper-Writing-Skill contributes optional function/type-indexed exemplars
+and descriptive style metrics, not its original hard-error checker or mandatory
+intake/report workflow. See [resource guide](references/bestpaper/README.md).
+Statistics from 55 award papers are reference distributions, not requirements
+for ACL, journals, theory papers or Chinese prose. Existing figure QA, full-scope
+reference audits and explicit-only title optimization retain their behavior.
+
 ## Repository layout
 
 ```
@@ -65,6 +79,10 @@ ml-paper-writing/
 ├── SKILL.md                    ← shared writing standard, modes, workflow, gates
 ├── references/
 │   ├── writing-guide.md        ← complete drafting, research types and sections
+│   ├── narrative-design.md     ← argument design from evidence to prose
+│   ├── research-routes.md      ← L1–L8 plus systems and survey routes
+│   ├── claim-calibration.md    ← strongest wording by evidence type
+│   ├── bestpaper/              ← optional exemplars, corpus statistics and licenses
 │   ├── abstract-and-title.md   ← selection, argument, compression and titles
 │   ├── introduction.md         ← capabilities, gap, idea and fulfilled promises
 │   ├── related-work.md         ← source relationships and exact comparison
@@ -86,6 +104,7 @@ ml-paper-writing/
 │   └── sources.md              ← guidance provenance and external limits
 ├── scripts/
 │   ├── lint_style.py           ← mechanical delivery-audit lint (see below)
+│   ├── bestpaper/              ← optional exemplar retrieval and style measurements
 │   ├── check-ref/              ← literature lookup helper and private local configuration
 │   ├── paper-title-optimizer/  ← optional trend, title-statistics and visibility helpers
 │   ├── audit_pseudocode.py     ← mechanical audit for a pseudocode block
@@ -119,7 +138,11 @@ Checks follow the actual artifact. Plain-text prose needs no artificial compile;
 
 ## License
 
-MIT (same as upstream). See [LICENSE](LICENSE).
+The original base remains MIT; see [LICENSE](LICENSE). Adapted Best-Paper
+guidance, scripts and corpus material retain CC BY 4.0 attribution under
+[NOTICE](NOTICE) and [the resource license](references/bestpaper/LICENSE-CC-BY-4.0).
+Quoted paper excerpts retain their authors' rights and are not relicensed.
+See [resource provenance](references/bestpaper/README.md).
 
 ## See also
 

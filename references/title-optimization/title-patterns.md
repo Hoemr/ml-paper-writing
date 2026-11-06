@@ -3,6 +3,10 @@
 标题在元数据检索层权重最高——BM25 和向量检索都重仓标题。arXiv API 的
 `ti:` 字段、Semantic Scholar、OpenAlex、Crossref 全部只索引 title/abstract。
 
+理论学习与理论计算机论文还需读取
+[theory-title-guidance.md](../theory-title-guidance.md)。其中的 COLT/STOC
+语料是理论论文的 venue-matched 参照；本文件的通用模板和长度经验不能覆盖它。
+
 ## 结构模板
 
 优先考虑这几个变体，各生成一版让作者挑：
@@ -82,6 +86,8 @@ node scripts/paper-title-optimizer/arxiv-trend.mjs --json "your acronym here" 2>
 
 这条是经验判断，不是被验证的定律：每多一个名词都在稀释标题向量对任何单个
 query 的精度。超过 22 词时优先砍背景铺垫从句，保留方法名 + 结果 + 范围。
+理论会议标题通常更短；COLT/STOC 的实测分布与适用建议见
+[theory-title-guidance.md](../theory-title-guidance.md)，并优先于这里的通用区间。
 
 ## 可检索性自检
 

@@ -170,7 +170,7 @@ gate for method schematics.
   Preserve conditions, adverse evidence, and citation attachment.
 
 - For chapter patterns and rewriting, use [writing-guide.md](writing-guide.md).
-  The [shared writing standard](../SKILL.md#shared-writing-standard) governs
+  The [shared writing standard](reviewer-guidelines.md#shared-writing-standard) governs
   anti-defensive decisions throughout the paper; supporting examples live in
   [reviewer-guidelines.md](reviewer-guidelines.md#defensive-writing-examples).
 - Keep author workflow commentary out of paper prose. Retain provenance,
@@ -207,3 +207,20 @@ gate for method schematics.
    source encoding separately: layout collisions can look like corrupted text.
    Full-width displays inserted into line-numbered two-column proofs deserve
    particular care; prefer column-width aligned derivations when they fit.
+
+
+## Prose rhythm and optional corpus comparison
+
+Remove a trailing participial clause when it merely restates significance
+(for example, “..., making the method effective”); preserve one that supplies
+a precise, supported operation or relation. Repeated connector-led sentences
+often indicate missing logical links: repair those links rather than targeting
+a connector quota. Use short sentences for genuine pivots when helpful, without
+forcing every sentence short or banning other lengths. Avoid canned insight
+announcements; let an observation's content carry its importance.
+
+For a concrete rhythm diagnosis or a requested exemplar comparison, use
+[bestpaper/README.md](bestpaper/README.md). Its percentiles describe a limited
+English award-paper corpus; they neither detect AI authorship nor establish
+prose quality. No fixed word/sentence counts, ban on conjectures, or obligation
+to remove scientifically necessary scope follows from those measurements.

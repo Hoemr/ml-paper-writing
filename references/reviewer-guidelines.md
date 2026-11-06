@@ -1,11 +1,92 @@
-# Scientific review, direct expression and author voice
+# Scientific review, shared writing standard and author voice
 
-The [shared writing standard](../SKILL.md#shared-writing-standard) owns narrative
-and anti-defensive decisions across all sections and takes precedence over this
-file. Apply it during drafting, not only after the argument is written. This
-file supplies supporting editorial examples, scientific review and the
-equivalence check. Abstract/introduction structure lives in their dedicated
-guides; punctuation and artifact rules live in style-conventions.
+This file owns narrative and anti-defensive decisions across all sections.
+Apply its shared standard during drafting and revision; section guides supply
+local craft, while style-conventions owns punctuation and artifact mechanics.
+The standard incorporates the user-supplied anti-defensive-writing-en guidance;
+no sibling skill is required.
+
+## Shared writing standard
+
+### Build the story around the strongest supported value
+
+Treat the paper as a press conference: identify its most publishable strength
+and build the most favorable, complete and persuasive account the evidence
+supports. Do not give every attempted idea, metric or observation equal space.
+
+- Center the genuine advantage: a new capability, problem, mechanism,
+  perspective, applicability, cost, efficiency, scalability or meaningful
+  trade-off. An empirical distinction or negative finding can itself be the
+  contribution. Material with no role in that contribution need not enter the
+  main storyline.
+- Explain the final standing logic: why the problem matters, where existing
+  approaches leave a gap, what this work provides and how the evidence supports
+  it. Remove chronological accounts of attempts, failures and editorial audits.
+- Choose the task, evaluation dimension, scenario, constraint and comparison
+  frame in which the supported value is clearest. Do not make a non-strength
+  the paper's headline contest or promise wins on every metric and dataset.
+  State under which conditions the advantage holds, what problem it solves and
+  why it matters. Explain its cause only when that explanation is supported.
+- Let the strongest evidence determine the story. When it cannot support the
+  original framing, reconsider the problem, contribution order, headline result
+  and experiment structure rather than defending the original plan. Synchronize
+  title, abstract, introduction and conclusion within the authorized scope;
+  identify broader changes when only a local edit was requested.
+
+### State contributions without self-undermining
+
+Remove authorial self-judgments such as "unfortunately," "merely," "only
+achieves," "still lags far behind," "limited improvement" and "severely
+insufficient." Avoid verdicts such as "our method is weaker" or "fails to
+surpass" that turn a bounded comparison into a judgment on the whole method.
+Do not manufacture reviewer objections, volunteer unrelated weaknesses or
+complete an opposing argument the paper does not need to answer.
+
+Before discussing unfavorable material, use this decision order:
+
+1. Remove material irrelevant to the core claim.
+2. Narrow an overbroad claim to the contribution the evidence supports.
+3. Choose an evaluation dimension or scenario that represents that value.
+4. Explain differing goals, constraints or a reasonable trade-off when supported.
+5. Reorganize experiments so the demonstrated advantage is the narrative and
+   visual center.
+6. Reframe the paper's story if its current central claim remains unsupported.
+7. State an unfavorable result plainly when it materially affects the central
+   conclusion and cannot be addressed through accurate framing.
+
+This order governs selection, emphasis and wording. Keep numbers, comparison
+conditions and material evidence accurate. A narrower claim must not imply
+overall superiority; a selected scenario must be named; a trade-off needs
+evidence on both sides. Do not invent an explanation or silently change a
+metric, denominator or evaluation protocol. Place necessary qualifications
+beside the affected inference and satisfy required limitations/disclosures,
+without repeating them as a weakness inventory across the paper. State known
+facts directly and attach uncertainty to the specific untested inference.
+
+### Give experiments and sections a persuasive job
+
+Experiments are tools of argument. Each main-text experiment should establish
+the claimed outcome, test the key mechanism, demonstrate value in the target
+scenario or distinguish a plausible alternative explanation. Move, condense or
+remove distracting material; propose redesign only when experiment design is
+in scope. Do not run new experiments as part of a writing-only task.
+
+The abstract and introduction should quickly establish the important problem,
+the gap, the distinctive approach and the strongest result with its meaning.
+Establish the contribution before discussing limitations. Methods explain the
+final design, results support the selected claims, and discussion interprets
+their value. The conclusion reinforces what was solved, proposed or established
+and why it matters; do not end with a fresh self-negation or expanded limitations.
+
+### Check before delivery
+
+Check the requested scope for sentences that expand the paper's obligations,
+raise unasked objections, generalize a local observation into a universal flaw,
+or use a negative judgment broader than the evidence. Remove work-report
+chronology and non-strength headline contests. Confirm that the abstract's
+opening establishes both problem and contribution, the advantage is explicit,
+and the conclusion closes on the supported takeaway. Use these checks during
+drafting as well as final review, not as a new paragraph of disclaimers.
 
 ## Scientific assessment first
 

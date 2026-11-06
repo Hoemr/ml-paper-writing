@@ -52,3 +52,19 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+
+Best-Paper-Writing-Skill integration (2026-10-31)
+==============================================
+Source: https://github.com/gulucaptain/Best-Paper-Writing-Skill
+Revision: b9eff99. Copyright (c) 2026 the contributors of that project.
+License: CC BY 4.0, https://creativecommons.org/licenses/by/4.0/
+The adapted narrative-design, research-routes and claim-calibration references,
+Best-Paper-derived additions to existing writing/figure/style guides, and bundled
+scripts/bestpaper and references/bestpaper resources retain that attribution.
+Changes: scope-aware routing, evidence-specific calibration, optional descriptive
+statistics, local resource paths; removal of universal length/word bans and
+mandatory forms/reports. Original check_draft/check_figures were not imported.
+See references/bestpaper/LICENSE-CC-BY-4.0 and UPSTREAM-NOTICE.md. Base-skill MIT
+notice is preserved there. Paper excerpts remain copyrighted by their authors;
+no rights to those excerpts are granted by the repository license.

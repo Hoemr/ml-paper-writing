@@ -15,6 +15,20 @@ runner requires Bash, Python 3, XeLaTeX and a PDF-to-PNG renderer. If Bash is
 unavailable, run the same six stages directly using the bundled Python helpers,
 XeLaTeX and a renderer; report any stage that could not run.
 
+## Figure roles in the paper
+
+When planning several figures, extend the existing evidence map with figure/table
+role, supported claim(s), intended location, panels, required source material,
+status and caption takeaway. Do not create a second planning database. A figure
+has one primary job but may support related claims; a theoretical result may
+need no figure. Choose diagnosis/contrast for a failure or cost question,
+showcase for an established capability, plot for measured scaling, concept for
+mechanism/theory, or resource structure for a dataset. Let the argument and venue
+choose the position and width; Figure 1 need not be a page-one full-width teaser.
+Draw supported mechanisms using this route. Use supplied measurements for plots;
+missing results remain clearly labeled draft placeholders or author queries,
+never fabricated curves/images. Existing TikZ and visual QA remain authoritative.
+
 ## Narrative → design contract
 
 Read the live manuscript, method equations/algorithm, existing figures/README,
@@ -191,9 +205,9 @@ Six stages, cheapest first:
 Fix every `HARD`. Warnings are smells: confirm each in the render before acting,
 because a linter that cries wolf gets ignored and then protects nothing.
 
-The geometry pass uses TikZ's own bounding boxes, so it has **no false positives**
-from glyph shapes or anti-aliasing — unlike raster-based checkers, which need
-lists of known false-positive families to stay usable.
+The geometry pass measures TikZ node bounds rather than raster glyph shapes,
+so anti-aliasing does not affect its measurements. Intentional nesting, dense
+grids and label bounds still need the triage below; paths are not instrumented.
 
 ### 4. Review what the machine cannot see
 
